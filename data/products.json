@@ -1,0 +1,132 @@
+[
+  {
+    "slug": "a6-1gang-switch",
+    "name": "A6 1 Gang Wall Switch",
+    "category": "A6 Wall Switches",
+    "series": "A6 Series",
+    "model": "A6-02",
+    "image": "/assets/products/a6-1gang-switch.jpg",
+    "summary": "Single gang wall switch options for residential, hotel, and project supply.",
+    "features": ["1 way / 2 way options", "Multiple finish options", "OEM logo support"]
+  },
+  {
+    "slug": "a6-2gang-switch",
+    "name": "A6 2 Gang Wall Switch",
+    "category": "A6 Wall Switches",
+    "series": "A6 Series",
+    "model": "A6-03",
+    "image": "/assets/products/a6-2gang-switch.jpg",
+    "summary": "Two gang switch layout for modern interiors and bulk project procurement.",
+    "features": ["2 gang layout", "1 way / 2 way options", "Color finish options"]
+  },
+  {
+    "slug": "a6-3gang-switch",
+    "name": "A6 3 Gang Wall Switch",
+    "category": "A6 Wall Switches",
+    "series": "A6 Series",
+    "model": "A6-04",
+    "image": "/assets/products/a6-3gang-switch.jpg",
+    "summary": "Three gang switch model for lighting control in homes, apartments, and hotels.",
+    "features": ["3 gang layout", "Project-ready supply", "Custom packaging available"]
+  },
+  {
+    "slug": "a6-thailand-socket",
+    "name": "A6 Thailand 3 Pole Socket",
+    "category": "Wall Sockets",
+    "series": "A6 Series",
+    "model": "A6-09",
+    "image": "/assets/products/a6-thailand-socket.jpg",
+    "summary": "Thailand 3 pole socket model for regional electrical projects.",
+    "features": ["Thailand socket format", "A6 matching design", "Bulk order support"]
+  },
+  {
+    "slug": "a6-switch-socket-combo",
+    "name": "A6 Switch + Thailand Socket",
+    "category": "Combination Units",
+    "series": "A6 Series",
+    "model": "A6-12 / A6-13",
+    "image": "/assets/products/a6-switch-socket-combo.jpg",
+    "summary": "Combination switch and socket panel for compact wall installations.",
+    "features": ["Switch + socket layout", "Matching color options", "OEM / ODM support"]
+  },
+  {
+    "slug": "a6-double-socket",
+    "name": "A6 Double 3 Pole Socket",
+    "category": "Wall Sockets",
+    "series": "A6 Series",
+    "model": "A6-16",
+    "image": "/assets/products/a6-double-socket.jpg",
+    "summary": "Double 3 pole socket design for practical residential and commercial use.",
+    "features": ["Double socket layout", "A6 series finish", "Stable project supply"]
+  },
+  {
+    "slug": "a6-double-thailand-socket",
+    "name": "A6 Double Thailand 3 Pole Socket",
+    "category": "Wall Sockets",
+    "series": "A6 Series",
+    "model": "A6-17",
+    "image": "/assets/products/a6-double-thailand-socket.jpg",
+    "summary": "Double Thailand socket option for regional project matching.",
+    "features": ["Double Thailand socket", "Coordinated faceplate", "Wholesale-ready"]
+  },
+  {
+    "slug": "power-strip-switch",
+    "name": "Power Strip with Switch",
+    "category": "Power Strips",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8132",
+    "image": "/assets/products/power-strip-switch.jpg",
+    "summary": "Power strip with switch for practical electrical accessory supply.",
+    "features": ["Integrated switch", "Multiple plug formats", "Channel supply support"]
+  },
+  {
+    "slug": "round-power-strip",
+    "name": "Round 3 Socket Power Strip",
+    "category": "Power Strips",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8135",
+    "image": "/assets/products/round-power-strip.jpg",
+    "summary": "Round socket strip design for market-specific electrical accessories.",
+    "features": ["Round body design", "3 socket layout", "Distributor-friendly"]
+  },
+  {
+    "slug": "double-round-power-strip",
+    "name": "Double Round Power Strip",
+    "category": "Power Strips",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8134",
+    "image": "/assets/products/double-round-power-strip.jpg",
+    "summary": "Double round power strip model for multi-outlet applications.",
+    "features": ["Double strip format", "Compact layout", "Bulk supply"]
+  },
+  {
+    "slug": "lamp-holder",
+    "name": "Lamp Holder",
+    "category": "Lighting Accessories",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8130",
+    "image": "/assets/products/lamp-holder.jpg",
+    "summary": "Lamp holder accessory for electrical and lighting distribution channels.",
+    "features": ["Lighting accessory", "Practical construction", "OEM packaging support"]
+  },
+  {
+    "slug": "three-pin-plug",
+    "name": "Three Pin Plug",
+    "category": "Plugs",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8168",
+    "image": "/assets/products/three-pin-plug.jpg",
+    "summary": "Three pin plug products for general electrical accessory supply.",
+    "features": ["Three pin format", "Stable production", "Wholesale supply"]
+  },
+  {
+    "slug": "two-pin-plug",
+    "name": "Two Pin Plug",
+    "category": "Plugs",
+    "series": "Plug & Power Accessories",
+    "model": "4B0A8149",
+    "image": "/assets/products/two-pin-plug.jpg",
+    "summary": "Two pin plug option for regional markets and distributor programs.",
+    "features": ["Two pin format", "Compact design", "Flexible MOQ"]
+  }
+]

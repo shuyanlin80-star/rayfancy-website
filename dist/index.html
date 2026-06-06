@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RayFancy | Wall Switches for Global Project Supply</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d4e4f6",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#261b01",
+                        "outline": "#777770",
+                        "surface-variant": "#e2e2e2",
+                        "slate-gray": "#536271",
+                        "primary-container": "#31322c",
+                        "tertiary-container": "#3c3011",
+                        "tertiary-fixed-dim": "#d9c49a",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#b9c8da",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#394857",
+                        "on-primary-fixed-variant": "#464741",
+                        "on-surface-variant": "#464741",
+                        "secondary-container": "#d4e4f6",
+                        "on-secondary-fixed": "#0d1d2a",
+                        "primary": "#1c1d18",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#5e5f58",
+                        "tertiary-fixed": "#f6e0b4",
+                        "on-tertiary-fixed": "#251a01",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#51606f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#534525",
+                        "primary-fixed-dim": "#c7c7be",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#9a9a92",
+                        "inverse-primary": "#c7c7be",
+                        "heritage-gold": "#B5A27A",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed": "#e4e3da",
+                        "on-secondary-container": "#576675",
+                        "outline-variant": "#c7c7be",
+                        "on-primary-fixed": "#1b1c17",
+                        "surface-container-low": "#f3f3f4",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#aa9770",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "off-white": "#F9F9F8",
+                        "obsidian-black": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "label-caps": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .text-outline-stroke {
+            -webkit-text-stroke: 1px rgba(181, 162, 122, 0.3);
+            color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<meta name="description" content="RayFancy supplies wall switches, sockets, plugs, power strips, and electrical accessories for global distributors, contractors, and OEM buyers.">
+<meta property="og:title" content="RayFancy | Wall Switches for Global Project Supply">
+<meta property="og:description" content="RayFancy supplies wall switches, sockets, plugs, power strips, and electrical accessories for global distributors, contractors, and OEM buyers.">
+<style>
+  .rayfancy-fb-qr{width:120px;height:120px;object-fit:contain;background:#fff;border:1px solid rgba(83,98,113,.18);padding:6px;margin-top:12px;}
+  .rayfancy-mobile-nav summary::-webkit-details-marker{display:none;}
+  @media (max-width: 1120px){.text-label-caps{font-size:10px!important;}}
+  @media (max-width: 768px){.px-margin-desktop{padding-left:20px!important;padding-right:20px!important}.text-display-lg{font-size:42px!important;line-height:50px!important}.text-headline-lg{font-size:34px!important;line-height:42px!important}}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-heritage-gold selection:text-white">
+<!-- Unified RayFancy Navigation -->
+<header class="w-full top-0 sticky bg-surface z-50 border-b border-slate-gray border-opacity-10 h-20 transition-all duration-300" id="main-nav">
+<nav class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-full gap-6">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-obsidian-black whitespace-nowrap" href="/">RAYFANCY</a>
+<div class="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-7">
+<a class="font-label-caps text-label-caps text-heritage-gold border-b-2 border-heritage-gold pb-1 transition-colors duration-300 whitespace-nowrap" href="/">Home</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/products.html">Products</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/quality.html">Quality</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/resources.html">Resources</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/projects.html">Projects</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/about.html">About</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/contact.html">Contact</a>
+</div>
+<details class="rayfancy-mobile-nav md:hidden relative">
+<summary class="list-none cursor-pointer text-primary flex items-center justify-center w-11 h-11 border border-slate-gray/20">
+<span class="material-symbols-outlined">menu</span>
+</summary>
+<div class="absolute right-0 top-14 w-64 bg-white tactile-shadow border border-slate-gray/10 p-5">
+<a class="block font-label-caps text-label-caps text-heritage-gold py-3 border-b border-slate-gray/10" href="/">Home</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/products.html">Products</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/quality.html">Quality</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/resources.html">Resources</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/projects.html">Projects</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/about.html">About</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/contact.html">Contact</a>
+<a class="block mt-5 bg-primary text-on-primary text-center font-label-caps text-label-caps px-5 py-4 tracking-widest" href="/contact.html">INQUIRY</a>
+</div>
+</details>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Tactile Excellence" class="w-full h-full object-cover" src="/assets/products/a6-switch-socket-combo.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-2xl">
+<span class="inline-block font-label-caps text-label-caps text-heritage-gold mb-6 tracking-[0.2em]">B2B EXCELLENCE</span>
+<h1 class="font-display-lg text-display-lg mb-8 leading-tight">Tactile Excellence.<br/>Realized Efficiently.</h1>
+<p class="font-body-lg text-body-lg text-slate-gray mb-10 max-w-xl">
+                        Factory-direct wall switches, sockets, plugs, and electrical accessories for distributors, contractors, OEM buyers, and project procurement teams.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-obsidian-black text-white font-label-caps text-label-caps px-8 py-5 hover:bg-heritage-gold transition-all duration-300" href="mailto:rayfancycn@gmail.com">Request Product Catalog</a>
+<a class="border border-slate-gray text-primary font-label-caps text-label-caps px-8 py-5 hover:bg-surface-container transition-all duration-300" href="/contact.html">Contact RayFancy</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Identity: The RayFancy Edge -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">The RayFancy Edge</h2>
+<p class="font-body-md text-body-md text-slate-gray">Our product workflow focuses on practical model matching, sample confirmation, factory communication, and repeatable order support for trade buyers.</p>
+</div>
+<div class="hidden md:block">
+<span class="font-headline-lg text-headline-lg text-outline-stroke">WENZHOU FACTORY</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h3 class="font-headline-md text-headline-md mb-4">Product Matching Support</h3>
+<p class="font-body-md text-body-md text-slate-gray">Switches, sockets, plugs, power strips, lamp holders, and accessories can be matched by product type and target market.</p>
+</div>
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h3 class="font-headline-md text-headline-md mb-4">Sample Confirmation</h3>
+<p class="font-body-md text-body-md text-slate-gray">Before bulk orders, product appearance, basic function, packaging direction, and model details can be confirmed through samples.</p>
+</div>
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">factory</span>
+<h3 class="font-headline-md text-headline-md mb-4">Factory-Direct Supply</h3>
+<p class="font-body-md text-body-md text-slate-gray">Direct communication with RayFancy helps buyers compare models, confirm order details, and prepare repeat supply more efficiently.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Collections Preview -->
+<section class="bg-off-white py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg mb-4">Product Collections</h2>
+<p class="font-body-md text-body-md text-slate-gray">Prepared from RayFancy product categories for distributors, contractors, OEM buyers, and project procurement.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Collection Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up photography of Series T Toggle switches in a brushed antique brass finish against a dark textured wallpaper. The lighting is focused and warm, highlighting the tactile metal toggle and the fine texture of the plate. The overall mood is sophisticated, professional, and reflects a heritage luxury aesthetic." src="/assets/products/a6-1gang-switch.jpg"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">A6 Wall Switches</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">1 gang, 2 gang, and 3 gang wall switch options for product catalogs and project matching.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Collection Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist architectural electrical panels in a matte black finish mounted on a light gray concrete wall. The design is clean, geometric, and perfectly aligned, evoking a sense of industrial reliability and editorial elegance. Soft, natural daylight from a side window creates subtle shadows that emphasize the panels' depth." src="/assets/products/a6-2gang-switch.jpg"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Switch & Socket Units</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">Combination layouts and wall socket options for practical electrical installation needs.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Collection Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-end precision electrical sockets in a brushed silver aluminum finish, installed on a clean white gallery wall. The sockets feature high-quality internal copper components visible in a stylized cutaway view nearby. The lighting is high-key and modern, emphasizing the product's technical precision and industrial quality." src="/assets/products/a6-thailand-socket.jpg"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Plugs & Power Accessories</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">Plugs, power strips, lamp holders, and related accessories for channel supply.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sector Focus -->
+<section class="py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-6 block">PROJECT APPLICATIONS</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Practical Supply for Different Buyer Channels</h2>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Hospitality</h4>
+<p class="font-body-md text-body-md text-slate-gray">Switches, sockets, and accessories can support room-by-room project procurement and sample review.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Commercial</h4>
+<p class="font-body-md text-body-md text-slate-gray">Product matching and bulk order communication for commercial contractors and distributors.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Residential</h4>
+<p class="font-body-md text-body-md text-slate-gray">Practical wall switch and socket options for residential market catalogs and OEM packaging.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 relative">
+<div class="relative rounded-none overflow-hidden h-[600px] shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A wide architectural shot of a luxury hotel suite lobby featuring premium wood paneling and marble details. In the foreground, a RayFancy gold switch panel is installed on a fluted wood column, catching the warm ambient glow of a designer floor lamp in the background. The scene exudes executive luxury and high-end commercial design." src="/assets/company/office.png"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-heritage-gold p-12 hidden md:block">
+<p class="font-headline-md text-white italic max-w-[200px]">"Real products, clear samples, practical supply."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Authority Block -->
+<section class="py-section-gap bg-primary text-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="bg-primary-container/40 p-12 border-l-4 border-heritage-gold">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-6 block">RESOURCE CENTER</span>
+<h2 class="font-headline-md text-headline-md mb-6 uppercase tracking-wider">Product Documentation</h2>
+<p class="font-body-md text-body-md text-on-primary-container mb-10">Request product images, model references, sample details, and available documentation according to confirmed product type.</p>
+<a class="inline-flex items-center gap-4 font-label-caps text-label-caps text-white group" href="/contact.html">
+                            Request Specs <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">file_download</span>
+</a>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg mb-8">Global Buyer Communication</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12">RayFancy supports overseas distributors, contractors, brand owners, and OEM buyers with direct factory communication from Wenzhou, China.</p>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">B2B</p>
+<p class="font-label-caps text-label-caps text-xs">Trade Support</p>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">OEM</p>
+<p class="font-label-caps text-label-caps text-xs">Packaging</p>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">A6</p>
+<p class="font-label-caps text-label-caps text-xs">Series</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div class="sticky top-40">
+<h2 class="font-headline-lg text-headline-lg mb-6">Chosen by Practical Buyers</h2>
+<p class="font-body-md text-body-md text-slate-gray">Trade buyers choose RayFancy for real product photos, sample communication, and practical OEM support.</p>
+</div>
+<div class="space-y-24">
+<blockquote class="relative border-l-2 border-heritage-gold pl-12">
+<p class="font-body-lg text-body-lg italic mb-8">"RayFancy helps us compare product categories quickly and confirm samples before discussing bulk orders."</p>
+<footer class="font-label-caps text-label-caps">
+<span class="block font-bold text-primary">Distributor Buyer</span>
+<span class="text-slate-gray">Product Selection</span>
+</footer>
+</blockquote>
+<blockquote class="relative border-l-2 border-heritage-gold pl-12">
+<p class="font-body-lg text-body-lg italic mb-8">"Direct WhatsApp and email communication makes early sourcing, sample review, and packaging discussion much easier."</p>
+<footer class="font-label-caps text-label-caps">
+<span class="block font-bold text-primary">OEM Partner</span>
+<span class="text-slate-gray">Packaging Program</span>
+</footer>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Gen Form -->
+<section class="py-section-gap bg-off-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-white p-12 md:p-24 shadow-sm border border-outline-variant/10">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Start a Global Partnership</h2>
+<p class="font-body-md text-body-md text-slate-gray">Send your product type, target market, quantity plan, and packaging needs. We will reply by email or WhatsApp.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-10">
+<div>
+<label class="font-label-caps text-label-caps block mb-2">FULL NAME</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="Enter your name" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">COMPANY EMAIL</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="name@company.com" type="email"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">FIRM / COMPANY</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="Distributor / Contractor / Brand Owner" type="text"/>
+</div>
+</div>
+<div class="space-y-10">
+<div>
+<label class="font-label-caps text-label-caps block mb-2">INTEREST AREA</label>
+<select class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md">
+<option>B2B Catalog Request</option>
+<option>OEM Packaging Inquiry</option>
+<option>Product Documentation Request</option>
+<option>Bulk Order Discussion</option>
+</select>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">PROJECT DESCRIPTION</label>
+<textarea class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md resize-none" placeholder="Tell us your product type, target market, quantity, and packaging needs" rows="4"></textarea>
+</div>
+<a class="w-full bg-primary text-white font-label-caps text-label-caps py-5 hover:bg-heritage-gold transition-all duration-300" href="mailto:rayfancycn@gmail.com">Submit Trade Inquiry</a>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-obsidian-black text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between">
+<div class="mb-12 md:mb-0">
+<div class="flex items-center gap-2 mb-8">
+<span class="font-headline-md text-headline-md text-heritage-gold">RayFancy</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container max-w-xs mb-8">
+                    Factory-direct wall switches, sockets, plugs, and electrical accessories for global trade buyers.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-on-primary-container/30 flex items-center justify-center hover:border-heritage-gold hover:text-heritage-gold transition-colors" href="/contact.html">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 border border-on-primary-container/30 flex items-center justify-center hover:border-heritage-gold hover:text-heritage-gold transition-colors" href="/contact.html">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">SOLUTIONS</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">A6 Wall Switches</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Switch & Socket Units</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Plugs & Power Accessories</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Accessory Supply</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">COMPANY</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/about.html">Company Information</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/resources.html">Technical Support</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/projects.html">Global Offices</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/projects.html">Projects</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">LEGAL</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Contact Sales</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="/contact.html">Contact Sales</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary-container/10 py-10 px-margin-desktop text-center">
+<p class="font-body-md text-body-md text-on-primary-container opacity-60">
+                © 04 RayFancy. Wall Switches and Electrical Accessories.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Instant activation for hero
+        const hero = document.querySelector('section');
+        if(hero) {
+            hero.classList.remove('opacity-0', 'translate-y-10');
+        }
+    </script>
+</body></html>

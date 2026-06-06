@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.rayfancy-pro.com/sitemap.xml

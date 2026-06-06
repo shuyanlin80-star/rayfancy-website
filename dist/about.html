@@ -1,0 +1,389 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0d1d2a",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#b9c8da",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#251a01",
+                    "secondary-container": "#d4e4f6",
+                    "on-primary-fixed": "#1b1c17",
+                    "inverse-primary": "#c7c7be",
+                    "tertiary-fixed-dim": "#d9c49a",
+                    "inverse-on-surface": "#f0f1f1",
+                    "heritage-gold": "#B5A27A",
+                    "tertiary": "#261b01",
+                    "primary": "#1c1d18",
+                    "surface-dim": "#dadada",
+                    "primary-fixed-dim": "#c7c7be",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f3f4",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "primary-container": "#31322c",
+                    "on-surface-variant": "#464741",
+                    "on-primary-container": "#9a9a92",
+                    "obsidian-black": "#000000",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#f6e0b4",
+                    "on-background": "#1a1c1c",
+                    "slate-gray": "#536271",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5e5f58",
+                    "secondary": "#51606f",
+                    "primary-fixed": "#e4e3da",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#d4e4f6",
+                    "on-secondary-fixed-variant": "#394857",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#534525",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-container": "#576675",
+                    "on-tertiary-container": "#aa9770",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#464741",
+                    "outline": "#777770",
+                    "outline-variant": "#c7c7be",
+                    "off-white": "#F9F9F8",
+                    "tertiary-container": "#3c3011"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Open Sans"],
+                    "label-md": ["Montserrat"],
+                    "body-md": ["Open Sans"],
+                    "display-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-caps": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px #B5A27A;
+            color: transparent;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #1c1d18; }
+    </style>
+<meta name="description" content="RayFancy supplies wall switches, sockets, plugs, power strips, and electrical accessories for global distributors, contractors, and OEM buyers.">
+<meta property="og:title" content="About RayFancy | Factory-Direct Electrical Hardware">
+<meta property="og:description" content="RayFancy supplies wall switches, sockets, plugs, power strips, and electrical accessories for global distributors, contractors, and OEM buyers.">
+<style>
+  .rayfancy-fb-qr{width:120px;height:120px;object-fit:contain;background:#fff;border:1px solid rgba(83,98,113,.18);padding:6px;margin-top:12px;}
+  .rayfancy-mobile-nav summary::-webkit-details-marker{display:none;}
+  @media (max-width: 1120px){.text-label-caps{font-size:10px!important;}}
+  @media (max-width: 768px){.px-margin-desktop{padding-left:20px!important;padding-right:20px!important}.text-display-lg{font-size:42px!important;line-height:50px!important}.text-headline-lg{font-size:34px!important;line-height:42px!important}}
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Unified RayFancy Navigation -->
+<header class="w-full top-0 sticky bg-surface z-50 border-b border-slate-gray border-opacity-10 h-20 transition-all duration-300" id="main-nav">
+<nav class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-full gap-6">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-obsidian-black whitespace-nowrap" href="/">RAYFANCY</a>
+<div class="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-7">
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/">Home</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/products.html">Products</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/quality.html">Quality</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/resources.html">Resources</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/projects.html">Projects</a>
+<a class="font-label-caps text-label-caps text-heritage-gold border-b-2 border-heritage-gold pb-1 transition-colors duration-300 whitespace-nowrap" href="/about.html">About</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300 whitespace-nowrap" href="/contact.html">Contact</a>
+</div>
+<details class="rayfancy-mobile-nav md:hidden relative">
+<summary class="list-none cursor-pointer text-primary flex items-center justify-center w-11 h-11 border border-slate-gray/20">
+<span class="material-symbols-outlined">menu</span>
+</summary>
+<div class="absolute right-0 top-14 w-64 bg-white tactile-shadow border border-slate-gray/10 p-5">
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/">Home</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/products.html">Products</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/quality.html">Quality</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/resources.html">Resources</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/projects.html">Projects</a>
+<a class="block font-label-caps text-label-caps text-heritage-gold py-3 border-b border-slate-gray/10" href="/about.html">About</a>
+<a class="block font-label-caps text-label-caps text-obsidian-black py-3 border-b border-slate-gray/10" href="/contact.html">Contact</a>
+<a class="block mt-5 bg-primary text-on-primary text-center font-label-caps text-label-caps px-5 py-4 tracking-widest" href="/contact.html">INQUIRY</a>
+</div>
+</details>
+</nav>
+</header>
+<main class="mt-20">
+<!-- Hero Section: Editorial Atmosphere -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale opacity-20" data-alt="A high-end editorial close-up photograph of hand-forged solid brass electrical switches in a minimalist workshop. The lighting is soft and directional, highlighting the heavy metallic grain and the precise mechanical lever. The background is a clean, neutral architectural grey, maintaining a professional and tactile aesthetic. Deep shadows and bright highlights emphasize the quality of the premium hardware." src="/assets/company/mold-design.png">
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10 w-full">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block">FACTORY DIRECT</span>
+<h1 class="font-display-lg text-display-lg md:text-[84px] leading-tight mb-8">THE BEAUTY OF PRACTICAL MANUFACTURING CERTAINTY.</h1>
+<p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant">
+                            RayFancy focuses on reliable wall switches and electrical accessories for overseas distributors, contractors, brand owners, and OEM customers.
+                        </p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 right-margin-desktop hidden md:block">
+<div class="flex items-center gap-4 rotate-90 origin-right translate-y-12">
+<span class="font-label-caps text-label-caps text-slate-gray tracking-[0.3em]">SCROLL TO EXPLORE</span>
+<div class="w-12 h-px bg-heritage-gold"></div>
+</div>
+</div>
+</section>
+<!-- Our Philosophy: The Anti-Tech Statement -->
+<section class="py-section-gap bg-off-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1">
+<h2 class="font-headline-lg text-headline-lg mb-6">PURE RELIABILITY.</h2>
+<div class="space-y-6">
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-heritage-gold" style="font-size: 32px;">offline_pin</span>
+<div>
+<h4 class="font-label-md text-label-md mb-1 uppercase tracking-wider">Practical Product Range</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Wall switches, sockets, plugs, power strips, and lighting accessories can support different channel needs.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-heritage-gold" style="font-size: 32px;">verified</span>
+<div>
+<h4 class="font-label-md text-label-md mb-1 uppercase tracking-wider">Factory Communication</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Samples, order quantities, color options, and packaging requirements can be confirmed before production.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="material-symbols-outlined text-heritage-gold" style="font-size: 32px;">touch_app</span>
+<div>
+<h4 class="font-label-md text-label-md mb-1 uppercase tracking-wider">Long-Term Cooperation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The "click" of a RayFancy switch is tuned to a specific frequency—providing sensory confirmation that is missing from touchscreens.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2 mb-12 md:mb-0">
+<div class="relative pl-12">
+<div class="absolute top-0 left-0 w-32 h-32 bg-heritage-gold opacity-10"></div>
+<img class="w-full grayscale h-[500px] object-cover" data-alt="A detailed macro shot focusing on the internal mechanisms of a high-quality toggle switch. Solid copper coils and heavy ceramic insulators are visible, showcasing the intricate mechanical engineering. The lighting is crisp and industrial, using high contrast to define the textures of the raw metal components against a dark, professional backdrop. The aesthetic is one of robust, timeless quality." src="/assets/company/testing.png">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Materials Grid: Tactile Focus -->
+<section class="py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop mb-16">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6">
+<h2 class="font-headline-lg text-headline-lg max-w-md">BUILT FROM REAL FACTORY CAPABILITY.</h2>
+<p class="font-label-caps text-label-caps text-slate-gray max-w-xs text-right">PRODUCT PHOTOS. FACTORY SCENES. PRACTICAL SUPPLY SUPPORT.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+<div class="group relative h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up of molten brass being poured into a precision mold in a traditional metal foundry. Bright glowing liquid metal creates intense orange highlights against the dark, industrial environment. The scene is dramatic and authentic, emphasizing the manual craftsmanship and heat of the manufacturing process for premium hardware. High detail on the texture of the sand molds and the liquid metal flow." src="/assets/company/copper-parts.png">
+<div class="absolute inset-0 bg-black/40 p-12 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-md text-white mb-2">COPPER PARTS</h3>
+<p class="text-white/80 font-body-md">Conductive components and electrical accessory details for product supply.</p>
+</div>
+</div>
+<div class="group relative h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" data-alt="Artistic shot of pure white ceramic insulators and switch plates arranged in a geometric pattern. The surface is smooth and matte, reflecting soft overhead lighting. The composition is minimalist and clean, highlighting the pristine nature of the material. Shadows are soft and diffuse, emphasizing the architectural quality and electrical insulation properties of the high-grade ceramic." src="/assets/company/injection-workshop.png">
+<div class="absolute inset-0 bg-heritage-gold/20 p-12 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-md text-white mb-2">INJECTION WORKSHOP</h3>
+<p class="text-white/80 font-body-md">Manufacturing scenes that support repeatable production and order fulfillment.</p>
+</div>
+</div>
+<div class="group relative h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro photograph of hand-burnished steel with a deep, dark patina. Subtle linear brush strokes are visible on the surface, catching the light in a sophisticated way. The image represents the 'Obsidian Black' finish of the hardware. The atmosphere is moody and luxurious, emphasizing the tactile quality of the metal finish and the artisanal hand-finishing process used by the brand." src="/assets/company/packing-workshop.png">
+<div class="absolute inset-0 bg-black/40 p-12 flex flex-col justify-end">
+<h3 class="font-headline-md text-headline-md text-white mb-2">PACKING WORKSHOP</h3>
+<p class="text-white/80 font-body-md">Packaging coordination for distributors and OEM-style supply.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline: A Century of Precision -->
+<section class="py-section-gap bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="mb-24 text-center">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block">THE CHRONICLE</span>
+<h2 class="font-headline-lg text-headline-lg">FROM SAMPLE CONFIRMATION TO REPEAT ORDERS.</h2>
+</div>
+<div class="relative border-l border-on-primary-container/20 ml-4 md:ml-0 md:border-l-0 md:before:content-[''] md:before:absolute md:before:top-0 md:before:left-1/2 md:before:w-px md:before:h-full md:before:bg-on-primary-container/20">
+<!-- 01 -->
+<div class="mb-24 md:flex items-center justify-between w-full relative">
+<div class="md:w-[45%] pl-8 md:pl-0 md:text-right">
+<h3 class="font-display-lg text-display-lg text-heritage-gold mb-2">01</h3>
+<h4 class="font-headline-md text-headline-md mb-4 uppercase">The First Forge</h4>
+<p class="text-on-primary-container font-body-md">Confirm product type, target market, finish, packaging needs, and estimated quantity.</p>
+</div>
+<div class="absolute left-[-5px] md:left-1/2 md:ml-[-5px] w-[11px] h-[11px] bg-heritage-gold rounded-full ring-8 ring-primary"></div>
+<div class="md:w-[45%] hidden md:block"></div>
+</div>
+<!-- 02 -->
+<div class="mb-24 md:flex items-center justify-between w-full relative">
+<div class="md:w-[45%] hidden md:block"></div>
+<div class="absolute left-[-5px] md:left-1/2 md:ml-[-5px] w-[11px] h-[11px] bg-heritage-gold rounded-full ring-8 ring-primary"></div>
+<div class="md:w-[45%] pl-8 md:pr-0">
+<h3 class="font-display-lg text-display-lg text-heritage-gold mb-2">02</h3>
+<h4 class="font-headline-md text-headline-md mb-4 uppercase">The Domestic Shift</h4>
+<p class="text-on-primary-container font-body-md">Review product appearance, basic function, packaging, and order details before bulk production.</p>
+</div>
+</div>
+<!-- 03 -->
+<div class="mb-24 md:flex items-center justify-between w-full relative">
+<div class="md:w-[45%] pl-8 md:pl-0 md:text-right">
+<h3 class="font-display-lg text-display-lg text-heritage-gold mb-2">03</h3>
+<h4 class="font-headline-md text-headline-md mb-4 uppercase">Material Renaissance</h4>
+<p class="text-on-primary-container font-body-md">RayFancy introduces specialized ceramic and rare metal finishes, defying the global trend toward plastic components.</p>
+</div>
+<div class="absolute left-[-5px] md:left-1/2 md:ml-[-5px] w-[11px] h-[11px] bg-heritage-gold rounded-full ring-8 ring-primary"></div>
+<div class="md:w-[45%] hidden md:block"></div>
+</div>
+<!-- 04 -->
+<div class="mb-0 md:flex items-center justify-between w-full relative">
+<div class="md:w-[45%] hidden md:block"></div>
+<div class="absolute left-[-5px] md:left-1/2 md:ml-[-5px] w-[11px] h-[11px] bg-heritage-gold rounded-full ring-8 ring-primary"></div>
+<div class="md:w-[45%] pl-8 md:pr-0">
+<h3 class="font-display-lg text-display-lg text-heritage-gold mb-2">04</h3>
+<h4 class="font-headline-md text-headline-md mb-4 uppercase">The Silent Majority</h4>
+<p class="text-on-primary-container font-body-md">Build repeatable channel supply around stable products, direct response, and practical cooperation.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Highlight Card (Tactile Shadow) -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-white p-12 md:p-24 shadow-[0_20px_40px_rgba(49,50,44,0.05)] border border-slate-gray/5 relative overflow-hidden group">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg mb-8">THE A6 SERIES.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">A practical wall switch and socket series for distributor catalogs, project matching, and OEM packaging programs.</p>
+<ul class="space-y-4 mb-12">
+<li class="flex justify-between border-b border-slate-gray/10 pb-2">
+<span class="font-label-md text-label-md uppercase text-slate-gray">Cycle Rating</span>
+<span class="font-body-md text-body-md">Switches / Sockets</span>
+</li>
+<li class="flex justify-between border-b border-slate-gray/10 pb-2">
+<span class="font-label-md text-label-md uppercase text-slate-gray">Response Time</span>
+<span class="font-body-md text-body-md">Factory Direct</span>
+</li>
+<li class="flex justify-between border-b border-slate-gray/10 pb-2">
+<span class="font-label-md text-label-md uppercase text-slate-gray">Warranty</span>
+<span class="font-body-md text-body-md">Logo / Packaging</span>
+</li>
+</ul>
+<button class="bg-obsidian-black text-white px-10 py-4 font-label-caps text-label-caps tracking-[0.2em] hover:bg-heritage-gold transition-colors duration-300">
+                                VIEW SPECS
+                            </button>
+</div>
+<div class="relative">
+<div class="absolute -inset-10 bg-surface-container rounded-full opacity-50 scale-0 group-hover:scale-100 transition-transform duration-1000"></div>
+<img class="w-full relative z-10" data-alt="A studio photograph of a single 'Anchor Series' toggle switch mounted on a pristine white architectural surface. The switch is finished in brushed brass, catching soft light from the side. The image emphasizes the sharp edges of the faceplate and the elegant curve of the mechanical toggle lever. Shadows are soft and minimal, presenting the product as a piece of functional art in a high-end interior." src="/assets/products/a6-1gang-switch.jpg">
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-primary dark:bg-obsidian-black w-full py-section-gap mt-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="md:col-span-2">
+<div class="font-headline-md text-headline-md text-off-white mb-6">RAYFANCY</div>
+<p class="text-primary-fixed-dim max-w-sm mb-8 font-body-md">ARCHITECTURAL QUALITY FOR GENERATIONS. WE BELIEVE IN THE PERMANENCE OF PHYSICAL DESIGN OVER THE TRANSIENCE OF DIGITAL TRENDS.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-heritage-gold mb-2">QUICK LINKS</h4>
+<a class="text-primary-fixed-dim hover:text-off-white transition-opacity font-body-md opacity-80 hover:opacity-100" href="/contact.html">Terms of Service</a>
+<a class="text-primary-fixed-dim hover:text-off-white transition-opacity font-body-md opacity-80 hover:opacity-100" href="/contact.html">Contact Sales</a>
+<a class="text-primary-fixed-dim hover:text-off-white transition-opacity font-body-md opacity-80 hover:opacity-100" href="/contact.html">Export Communication</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-heritage-gold mb-2">CLIENT SERVICES</h4>
+<a class="text-primary-fixed-dim hover:text-off-white transition-opacity font-body-md opacity-80 hover:opacity-100" href="/contact.html">Sample Confirmation</a>
+<a class="text-primary-fixed-dim hover:text-off-white transition-opacity font-body-md opacity-80 hover:opacity-100" href="/contact.html">Trade Account</a>
+<div class="mt-8 flex gap-4">
+<span class="material-symbols-outlined text-off-white cursor-pointer hover:text-heritage-gold transition-colors">hub</span>
+<span class="material-symbols-outlined text-off-white cursor-pointer hover:text-heritage-gold transition-colors">camera</span>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop border-t border-white/5 mt-16 pt-8">
+<p class="text-primary-fixed-dim font-label-caps text-[10px] tracking-widest opacity-60">© 2026 RAYFANCY. WALL SWITCHES AND ELECTRICAL ACCESSORIES.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, observerOptions);
+
+            // Apply to specific sections for a subtle reveal
+            const reveals = document.querySelectorAll('section h2, section p, .md\\:flex.items-center.justify-between');
+            reveals.forEach(el => {
+                el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
