@@ -1058,9 +1058,9 @@ function tuneContactPage(html) {
 
 function tuneProductsPage(html) {
   return html
-    .replace(/src="\/assets\/products\/a6-1gang-switch\.jpg"/, `src="/assets/products/a2-series-wall-switch-still070.png"`)
-    .replace(/src="\/assets\/products\/a6-2gang-switch\.jpg"/, `src="/assets/products/a6-series-wall-switch-still038.png"`)
-    .replace(/src="\/assets\/products\/a6-3gang-switch\.jpg"/, `src="/assets/products/a8-series-wall-switch-lzk02871.png"`)
+    .replace(/src="\/assets\/products\/a6-1gang-switch\.jpg"/, `src="/assets/products/a2-series-wall-switch-still070.jpg"`)
+    .replace(/src="\/assets\/products\/a6-2gang-switch\.jpg"/, `src="/assets/products/a6-series-wall-switch-still038.jpg"`)
+    .replace(/src="\/assets\/products\/a6-3gang-switch\.jpg"/, `src="/assets/products/a8-series-wall-switch-lzk02871.jpg"`)
     .replace(/src="\/assets\/products\/a6-thailand-socket\.jpg"/, `src="/assets/products/residential-socket-ecommerce-202606082309.jpeg"`)
     .replace(/src="\/assets\/products\/a6-double-socket\.jpg"/, `src="/assets/products/commercial-socket-ecommerce-202606082310.jpeg"`)
     .replace(/src="\/assets\/products\/three-pin-plug\.jpg"/, `src="/assets/products/lighting-accessory-lamp-holder-4b0a8145.jpg"`)
