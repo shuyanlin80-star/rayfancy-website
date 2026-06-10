@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Project Portfolio | RayFancy</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#777770",
+                    "on-tertiary-container": "#aa9770",
+                    "tertiary": "#261b01",
+                    "primary-container": "#31322c",
+                    "slate-gray": "#536271",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#c7c7be",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#d4e4f6",
+                    "background": "#f9f9f9",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "surface-container-low": "#f3f3f4",
+                    "outline-variant": "#c7c7be",
+                    "off-white": "#F9F9F8",
+                    "on-tertiary-fixed-variant": "#534525",
+                    "on-primary-fixed": "#1b1c17",
+                    "on-secondary-fixed": "#0d1d2a",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-fixed": "#e4e3da",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "primary": "#1c1d18",
+                    "on-primary-fixed-variant": "#464741",
+                    "tertiary-fixed-dim": "#d9c49a",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#d4e4f6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-surface-variant": "#464741",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container": "#eeeeee",
+                    "on-primary-container": "#9a9a92",
+                    "on-secondary-fixed-variant": "#394857",
+                    "surface": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#251a01",
+                    "inverse-primary": "#c7c7be",
+                    "tertiary-fixed": "#f6e0b4",
+                    "obsidian-black": "#000000",
+                    "on-background": "#1a1c1c",
+                    "surface-variant": "#e2e2e2",
+                    "secondary-fixed-dim": "#b9c8da",
+                    "surface-bright": "#f9f9f9",
+                    "secondary": "#51606f",
+                    "heritage-gold": "#B5A27A",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#3c3011",
+                    "on-secondary-container": "#576675",
+                    "surface-tint": "#5e5f58"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-md": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "label-caps": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Open Sans"],
+                    "body-md": ["Open Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        .project-image {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px #B5A27A;
+            color: transparent;
+        }
+        .tactile-shadow {
+            box-shadow: 0 20px 40px -20px rgba(49, 50, 44, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-primary selection:bg-heritage-gold selection:text-white antialiased">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky bg-surface z-50 border-b border-outline-variant opacity-100 h-20 transition-all duration-300 ease-in-out">
+<nav class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-full">
+<div class="font-headline-md text-headline-md font-bold tracking-tight text-primary">
+                RayFancy
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Trade Collections</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Bespoke Services</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Resources</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-heritage-gold pb-1" href="#">Projects</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-primary" data-icon="search">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest hover:bg-heritage-gold transition-all duration-300">
+                    Trade Login
+                </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[80vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury Hotel Project Portfolio" class="w-full h-full object-cover grayscale-[20%] brightness-[85%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoSu0dIFzqwdi4JIsWJF26_uEVDR-zwGza9JZ3vgHkNZg7shAclmjJ2LqaQIJwGWz6pMIKEOGCV179lf_MBH5h-7zI7IeZyAqhDSdKA3sk8_mTHqrLTXaWyWnGOwqufKR9eQaloiAfLGF7IiM6KAELaTWzFjbc9jpOUxXd5SRXKxLWPm92z7xZysun9qBx7O5v58kloOXAcngyzZzAW_gDqaFmZ7nf5mqsmFrnR8B-KJhsoq7jf-I0DxmFPP7b8PoNOlu7eB7A7Qw"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full text-white">
+<div class="max-w-2xl">
+<span class="font-label-caps text-label-caps tracking-[0.3em] uppercase text-heritage-gold mb-6 block">Case Studies</span>
+<h1 class="font-display-lg text-display-lg mb-6 leading-[1.1]">Global Project Portfolio</h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-lg">
+                        From boutique hotels to high-rise commercial developments, RayFancy delivers industrial reliability and editorial elegance at a global scale.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Project Filter Section -->
+<section class="py-16 bg-surface-container-low border-b border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-primary">Portfolio Selection</h2>
+<p class="font-body-md text-body-md text-secondary">Browse our curated installations by industry sector.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="px-8 py-3 bg-obsidian-black text-white font-label-caps text-label-caps tracking-widest uppercase hover:bg-heritage-gold transition-all">All Projects</button>
+<button class="px-8 py-3 border border-outline/30 text-primary font-label-caps text-label-caps tracking-widest uppercase hover:bg-surface-container transition-all">Hospitality</button>
+<button class="px-8 py-3 border border-outline/30 text-primary font-label-caps text-label-caps tracking-widest uppercase hover:bg-surface-container transition-all">Commercial</button>
+<button class="px-8 py-3 border border-outline/30 text-primary font-label-caps text-label-caps tracking-widest uppercase hover:bg-surface-container transition-all">Residential</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Project Gallery -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-y-24 gap-x-12">
+<!-- Project 1: Dubai -->
+<div class="md:col-span-12 group cursor-pointer">
+<div class="grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
+<div class="lg:col-span-8 overflow-hidden bg-off-white">
+<img class="project-image w-full h-[500px] object-cover tactile-shadow" data-alt="An expansive view of a luxury hotel suite in Dubai featuring warm sand-colored interiors and premium bronze hardware installations on the walls. The lighting is golden and soft, highlighting the high-end materials and the architectural precision of the room. The aesthetic is extremely sophisticated and expensive, mirroring the industrial reliability and editorial elegance of the RayFancy brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSMSnUuWLnIxXSODfbiofha-6p_y9FiDwxLxDdUR0e7raKsSVSo05lshzrftcahRctjTWUiciVQD-5T_-3ZzWQqAg9uT9qdNIw3wf2BDHlLtlWN8udPz8clojiBSuqRrrqfcIsqpbLoWiVKUGXIZNSBu2BJLUzuD_gCzn-M4A1vka6mvnoD9460F1Jzz3p2atytlkp7K6v0tw74jrrK-44WtowP8p-W3vvbkmgl7QvVOOqHOvB_CoPNDctvzX-awDaCgbY0W3QCk"/>
+</div>
+<div class="lg:col-span-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-2">Hospitality</span>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4 leading-tight">The Grand Meridian — Dubai</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">
+                                    Highlighting custom bronze finishes for 400+ suites. We developed a unique matte-weathered finish specifically for this project to withstand the local environmental conditions while maintaining an aesthetic of quiet luxury.
+                                </p>
+<div class="flex items-center space-x-2 text-primary font-label-md text-label-md">
+<span>View Case Study</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2: Singapore -->
+<div class="md:col-span-6 group cursor-pointer">
+<div class="overflow-hidden bg-off-white mb-8">
+<img class="project-image w-full h-[400px] object-cover tactile-shadow" data-alt="A futuristic and minimalist office lobby in Singapore featuring glass walls, polished concrete floors, and matte black technological hardware integrated into the structure. Bright, cool daylight floods the space, creating a crisp and efficient professional atmosphere. The design is clean, structural, and focused on high-traffic durability with a sophisticated black and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBskqER3ywt4maQ4Azqti_Ujq7hgy7sqnY9icPT3O-Wx7JI4lJS5ND4i9D9EmbTdRMvOdAvoJ0ZhYNtFf2AxcE_ThKk_xRayuPuEHJ3DrAmk30B9cQtqF1r_ZsOlPXMdehAuTA3nNiAOLEBVkvwCCLan1tFtNTUa1w3bKZaPnrtzLdFp_Jr7csT-Vp3tDl7dPU5gawWcu48FNw5UtSGdFp0h-1TYG6TeC8fo_6azTbyXnECmI3UvMiIY52nbdUJndL9i0-JAoNkNss"/>
+</div>
+<span class="font-label-caps text-label-caps text-heritage-gold mb-2">Commercial</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Nexus Tech Headquarters — Singapore</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">
+                            Focused on high-traffic durability and minimalist aesthetics for the APAC regional hub of a global tech giant.
+                        </p>
+<div class="w-12 h-[2px] bg-heritage-gold"></div>
+</div>
+<!-- Project 3: London -->
+<div class="md:col-span-6 group cursor-pointer mt-0 md:mt-24">
+<div class="overflow-hidden bg-off-white mb-8">
+<img class="project-image w-full h-[400px] object-cover tactile-shadow" data-alt="A high-end luxury residential interior in London featuring walnut wood paneling and silver-brushed metal switch plates. The mood is warm, intimate, and editorial, with soft ambient light coming from a nearby floor lamp. Every detail suggests tactile warmth and craftsmanship, focusing on the sensory experience of the home environment in a rich, dark-toned palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6nunzOUDzp_xeZ4GEds17AdVS02CAZz-euSm-osVuSTHVfl58VLLIwa3jo4htXpsfsEFv_m0ND3peNa9yYEYgCv79H01FPx1IkUKFDWx-mSEhbwIOixqDjPsroE6oJk2-xElR7mzCQW7XnbpZhG2YyJjK6O6Oh8Zl7OZxwxOHks4dwmhLdyBACbNopzq6QMhol1W5VtL1uzXDORv4rhd9O_YNG3LzTohC67y-dQYV_arUu3jlMB9HHphMdA8hU2avbk3g9fKh37A"/>
+</div>
+<span class="font-label-caps text-label-caps text-heritage-gold mb-2">Luxury Residential</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Elysian Residences — London</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">
+                            Showcasing the tactile warmth of silver-brushed panels across twelve bespoke penthouses in the heart of Mayfair.
+                        </p>
+<div class="w-12 h-[2px] bg-heritage-gold"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Inquiry / CTA -->
+<section class="py-section-gap bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-display-lg text-display-lg mb-8 text-white">Partner for your next project</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12">
+                        Our dedicated trade team provides technical consultation, custom finish matching, and logistics support for developments of any scale.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<a class="px-12 py-4 bg-heritage-gold text-primary font-label-caps text-label-caps tracking-widest uppercase font-bold hover:bg-white transition-all w-full sm:w-auto" href="#">
+                            Inquire Now
+                        </a>
+<a class="px-12 py-4 border border-outline-variant/30 text-on-primary font-label-caps text-label-caps tracking-widest uppercase hover:border-white transition-all w-full sm:w-auto" href="#">
+                            Download Specs
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specification Snippet (Tactile Influence) -->
+<section class="py-24 bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<h4 class="font-label-caps text-label-caps text-heritage-gold mb-4 uppercase">Reliability at Scale</h4>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Built for Permanence</h2>
+<div class="space-y-6">
+<div class="flex justify-between border-b border-outline-variant/10 pb-4">
+<span class="font-label-md text-label-md text-secondary">Switching Cycle Rating</span>
+<span class="font-body-md text-body-md text-primary">100,000+ Cycles</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-4">
+<span class="font-label-md text-label-md text-secondary">Material Composition</span>
+<span class="font-body-md text-body-md text-primary">Grade 304 Stainless Steel / Brass</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-4">
+<span class="font-label-md text-label-md text-secondary">Environmental Rating</span>
+<span class="font-body-md text-body-md text-primary">IP44 Compliant Options</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-4">
+<span class="font-label-md text-label-md text-secondary">Safety Certification</span>
+<span class="font-body-md text-body-md text-primary">IEC, UL, CE, BS Standards</span>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-heritage-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<img class="relative z-10 w-full h-[400px] object-cover shadow-2xl" data-alt="A macro close-up of a brushed metal electrical switch mechanism, showcasing the precise engineering and high-quality material texture. The lighting highlights the fine grains of the silver-brushed finish and the crisp edges of the industrial design. The mood is technical and high-end, emphasizing the 'silent utility' of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQfIAYB_NVX1659b7n1NSL8RRVOuGHVWlKeFN476dLX1KYLElwr5Iag4Zg-Dv-IdcxgWxkcjQTIpUVVFdicJfpPd8pBUQ1kObQAFvaJkYdTUgP2iMA7lWTp7ijZ4zLzCIIEcRGlUohgzxutBi-oSoCtBGtYATpvkhtyKKM7gZqPrk-BQN10J6rApvGvYrtxjCrVdBaEmAUQQevzXHWWKdJES5xwnBLcwsakQFbnWibooUHWbIBPtBUrDbawYmsvgKD7zk9FFDVgk4"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between">
+<div class="mb-12 md:mb-0">
+<div class="font-headline-md text-headline-md text-heritage-gold mb-6">RayFancy</div>
+<p class="max-w-xs font-body-md text-body-md text-on-primary-container">
+                    Industrial Reliability, Editorial Elegance. Bridging the gap between architectural vision and hardware performance.
+                </p>
+<div class="mt-8 flex space-x-4">
+<span class="material-symbols-outlined text-heritage-gold cursor-pointer">language</span>
+<span class="material-symbols-outlined text-heritage-gold cursor-pointer">share</span>
+<span class="material-symbols-outlined text-heritage-gold cursor-pointer">mail</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 lg:gap-24">
+<div class="flex flex-col space-y-4">
+<h5 class="font-label-caps text-label-caps text-white mb-2">Company</h5>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Company Information</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Global Offices</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Career Opportunities</a>
+</div>
+<div class="flex flex-col space-y-4">
+<h5 class="font-label-caps text-label-caps text-white mb-2">Legal &amp; Support</h5>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Technical Support</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/10 text-center md:text-left">
+<p class="font-body-md text-body-md text-on-primary-container/60">
+                © 2024 RayFancy. Industrial Reliability, Editorial Elegance.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for Sticky Header
+        window.onscroll = function() {
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('shadow-md', 'h-16');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('shadow-md', 'h-16');
+                header.classList.add('h-20');
+            }
+        };
+
+        // Simple Fade-in effect for elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .group').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

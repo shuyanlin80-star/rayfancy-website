@@ -6,9 +6,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
 const publicDir = path.join(root, "public");
-const stitchRoot = "/Users/lzk/RFC 建站资料/stitch_extracted_text_from_https_www.electricair.io";
-const stitchRoot2 = "/Users/lzk/RFC 建站资料/stitch_extracted_text_from_https_www.electricair.io 2";
-const stitchRoot3 = "/Users/lzk/RFC 建站资料/stitch_extracted_text_from_https_www.electricair.io 3";
+const stitchRoot = path.join(root, "src/stitch/base");
+const stitchRoot2 = path.join(root, "src/stitch/pages");
+const stitchRoot3 = path.join(root, "src/stitch/home");
 const checkOnly = process.argv.includes("--check");
 
 const contact = {

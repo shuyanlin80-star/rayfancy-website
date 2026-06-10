@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;family=Open+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f9f9f9;
+        }
+        .product-card-shadow {
+            transition: box-shadow 0.4s ease;
+        }
+        .product-card-shadow:hover {
+            box-shadow: 0 20px 40px rgba(49, 50, 44, 0.05);
+        }
+        .filter-border {
+            border-bottom: 2px solid #1c1d18;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#0d1d2a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed-dim": "#b9c8da",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#251a01",
+                        "secondary-container": "#d4e4f6",
+                        "on-primary-fixed": "#1b1c17",
+                        "inverse-primary": "#c7c7be",
+                        "tertiary-fixed-dim": "#d9c49a",
+                        "inverse-on-surface": "#f0f1f1",
+                        "heritage-gold": "#B5A27A",
+                        "tertiary": "#261b01",
+                        "primary": "#1c1d18",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#c7c7be",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f3f3f4",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "primary-container": "#31322c",
+                        "on-surface-variant": "#464741",
+                        "on-primary-container": "#9a9a92",
+                        "obsidian-black": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#f6e0b4",
+                        "on-background": "#1a1c1c",
+                        "slate-gray": "#536271",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#5e5f58",
+                        "secondary": "#51606f",
+                        "primary-fixed": "#e4e3da",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#d4e4f6",
+                        "on-secondary-fixed-variant": "#394857",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#534525",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-container": "#576675",
+                        "on-tertiary-container": "#aa9770",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#464741",
+                        "outline": "#777770",
+                        "outline-variant": "#c7c7be",
+                        "off-white": "#F9F9F8",
+                        "tertiary-container": "#3c3011"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Open Sans"],
+                        "label-md": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "display-lg": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-caps": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-primary font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full bg-surface h-20 border-b border-slate-gray border-opacity-10 z-50">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-full">
+<div class="font-headline-md text-headline-md font-bold text-obsidian-black">TRADITION HARDWARE</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-caps text-label-caps text-heritage-gold border-b-2 border-heritage-gold pb-1" href="#">Products</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300" href="#">About Us</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="font-label-caps text-label-caps text-primary hover:text-heritage-gold transition-colors">CATALOGUE</button>
+<span class="material-symbols-outlined text-primary cursor-pointer">shopping_bag</span>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Section -->
+<section class="mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-8">
+<h1 class="font-display-lg text-display-lg text-obsidian-black mb-6">ARCHITECTURAL QUALITY.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Our collection of hand-finished switches, sockets, and plugs is designed for those who appreciate the tactile weight of excellence and the permanence of classic design.</p>
+</div>
+<div class="md:col-span-4 flex justify-end">
+<div class="flex items-center gap-2 border-b-2 border-obsidian-black pb-2 cursor-pointer group">
+<span class="font-label-caps text-label-caps">EXPLORE MATERIALS</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Layout -->
+<div class="flex flex-col md:flex-row gap-16">
+<!-- Sidebar Filter -->
+<aside class="w-full md:w-64 flex-shrink-0 space-y-12">
+<div>
+<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">MATERIAL</h3>
+<ul class="space-y-4">
+<li class="flex items-center justify-between group cursor-pointer">
+<span class="font-body-md text-body-md text-slate-gray group-hover:text-obsidian-black transition-colors">Brass</span>
+<span class="text-[10px] font-bold text-slate-gray/40">12</span>
+</li>
+<li class="flex items-center justify-between group cursor-pointer">
+<span class="font-body-md text-body-md text-obsidian-black font-semibold">Steel</span>
+<span class="text-[10px] font-bold text-obsidian-black">08</span>
+</li>
+<li class="flex items-center justify-between group cursor-pointer">
+<span class="font-body-md text-body-md text-slate-gray group-hover:text-obsidian-black transition-colors">Porcelain</span>
+<span class="text-[10px] font-bold text-slate-gray/40">04</span>
+</li>
+<li class="flex items-center justify-between group cursor-pointer">
+<span class="font-body-md text-body-md text-slate-gray group-hover:text-obsidian-black transition-colors">Bronze</span>
+<span class="text-[10px] font-bold text-slate-gray/40">06</span>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">FINISH</h3>
+<div class="grid grid-cols-4 gap-4">
+<div class="group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-[#D4AF37] border border-slate-gray/10 mb-2 ring-offset-2 group-hover:ring-2 ring-heritage-gold transition-all"></div>
+<span class="text-[10px] font-bold text-slate-gray uppercase block text-center">Gold</span>
+</div>
+<div class="group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-[#1c1d18] border border-slate-gray/10 mb-2 ring-offset-2 group-hover:ring-2 ring-obsidian-black transition-all"></div>
+<span class="text-[10px] font-bold text-slate-gray uppercase block text-center">Matt</span>
+</div>
+<div class="group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-[#E5E4E2] border border-slate-gray/10 mb-2 ring-offset-2 group-hover:ring-2 ring-slate-gray transition-all"></div>
+<span class="text-[10px] font-bold text-slate-gray uppercase block text-center">Steel</span>
+</div>
+<div class="group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-[#F5F5F5] border border-slate-gray/10 mb-2 ring-offset-2 group-hover:ring-2 ring-slate-gray transition-all"></div>
+<span class="text-[10px] font-bold text-slate-gray uppercase block text-center">White</span>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-gray border-opacity-10">
+<button class="w-full py-4 bg-obsidian-black text-on-primary font-label-caps text-label-caps hover:bg-heritage-gold transition-colors duration-300">RESET FILTERS</button>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-grow">
+<!-- Switches Section -->
+<div class="mb-24" id="switches">
+<div class="flex items-baseline justify-between mb-12 border-b border-slate-gray border-opacity-10 pb-4">
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black">Switches</h2>
+<span class="font-label-caps text-label-caps text-slate-gray">01 — 12</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-gutter">
+<!-- Product Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A macro photograph of a high-end toggle light switch made from aged brass with a deep patina. The switch is mounted on a minimalist matte white wall, illuminated by soft morning side-lighting that highlights the metallic texture and crisp edges. The aesthetic is editorial and luxurious, reflecting a professional architectural hardware brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgyaZAH3O8RqjujVMKlY0u3vGvLWNw2GXZ5_Hla0YWRYhBHWF8nyVPYP4CuBhDDkhuXIyNeq85d7P_Y_5bTgstoHe8ZoDIYAUtOmiSs-za-28usZqCi8mxkS4FxQb5siwi07sjpsn1q8xnCwsEpESH5L1HF8qeax9BGzWhRLB6dqThiylNTuGoWlRpHhWR8F4vOwg1_oohiwGoHI1QcnFv0s5zClTXSn8_DujFLXjzyJCl5YB8FrG_4H_iVkBoSM4ywyMSWZWo9hk">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Aged Brass Toggle</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Hand-Finished Patina</p>
+</div>
+<!-- Product Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A clean, direct view of a modern matte black rotary dimmer switch. The switch has a precise knurled texture on the dial, catching subtle highlights from a high-key studio light. The background is a seamless light gray, maintaining a minimalist and industrial-chic feel suitable for premium interior design hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKvS5O2RBOmNgpUVKs3-gXbmdvGbkyfh_rDgtbLiDZCSRpl_hVklnS1QIFyYXXyaKA_OdelFSTyr_hOrc4FWBkbxaWPVbbk2em4eskObwgnbZ-1X2IFZwMkVjVxR1JZSINIazZwrVCFY7oE3yKCyZVtfrLBiXpUgwNUFFlouoZB6wmrJo6j_BZZdLXCTlPmrKfjSiuQTBHcGPpbYbevkAU-_P_A4piURR13Cvq0bvaOws9hqryqlj3YqsuCe74gWpz6rwfZlEcIqY">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Obsidian Rotary</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Knurled Matte Black</p>
+</div>
+<!-- Product Item 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A premium white porcelain light switch with a round silhouette, featuring a polished chrome toggle in the center. The switch sits against a stark, off-white surface with clinical precision. The lighting is diffuse and soft, emphasizing the smooth, reflective quality of the porcelain and the sharp metallic contrast of the chrome." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsL8cx76hNw7VEHFVZzQa_v68Ton2It0wGDLyJilWV8Y6B8Fd08XFZU8vFKEIyUiasytdip6rTQhHNaY7SrJPFLzZWkhRbqAELydIQ7WOLjDJylA2VFJ44iHgWDQ1P52RvSQoAqsaNQN71wO-z7Og3IybwYk2xCwV9dJxzpnVj1V4tyKQcX4KZ5RFnpVA1UFoYgL3Iwz2DQ2VnBQbNEBREdcAdBjtHIb8ZIB2n3cTzUuK-Xl9n7D6OhOyqCyaf1VOT45ao1ztxvAc">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Classic Porcelain</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Glazed White Ceramic</p>
+</div>
+</div>
+</div>
+<!-- Sockets Section -->
+<div class="mb-24" id="sockets">
+<div class="flex items-baseline justify-between mb-12 border-b border-slate-gray border-opacity-10 pb-4">
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black">Sockets</h2>
+<span class="font-label-caps text-label-caps text-slate-gray">01 — 08</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-gutter">
+<!-- Socket Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="An architectural double power socket finished in brushed steel, featuring integrated USB-C ports. The metal has a subtle horizontal grain that reflects light in a soft, linear fashion. The design is flush with the wall, emphasizing a modern, minimalist aesthetic within a bright, contemporary interior space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC60KOio9Af8xOJJHSpK-5oEdG2phzqcB8Zx0R4X-H8v8voBbKUw8nBTuhNj3xiwqG174cb_0f7ArbImHjh_diGzNoYTDaoY7tCQiqafpJ1yZsQcz-9y_HtYukxjJG37Otf0eSgbQtc5N46hFrUfp2H8Jp1FdAQhStFfbWG7V8QUJyrgqFqLmxOZz5WxwArAs6BGy4a3dVCwMF4r-9wr37WUdYQBQOIQpUdlXyXi6B881mToH6vxcwjXcfY8FL2dmu2y4iSwpufDTs">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Double USB Socket</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Brushed Stainless Steel</p>
+</div>
+<!-- Socket Item 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A single power socket with an aged bronze faceplate and matching screws. The finish is dark, rich, and slightly irregular, suggesting hand-craftsmanship. It is photographed from a low angle to show the structural thickness of the plate against a matte dark gray background, evoking a moody and premium feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlelQLzPYz_qynp9OxzmQlTNIvRZDTt6rOGppsDc71Mlfns3F85_s49x16oRL31bnMUJOFowhit5uXtdZzkUXu_cCeoAcZBjPzmBCiZ9K6Uo3puMdrUVj_z1JTHtlCKSxezmDg18LGdj417_4efdopd702KWeU-4RY8u1CdKXm9qR-ejawPadwXWxWJu5oXZgOQmjn7hIRwJV0wnK2COsyeNAc7GNHCY_cDoO7gisTCIa-pwZpGILBwKCkWivdBzEWJA3IlkgMCEA">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Bronze Single</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Smoked Bronze Finish</p>
+</div>
+</div>
+</div>
+<!-- Plugs Section -->
+<div class="mb-24" id="plugs">
+<div class="flex items-baseline justify-between mb-12 border-b border-slate-gray border-opacity-10 pb-4">
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black">Plugs</h2>
+<span class="font-label-caps text-label-caps text-slate-gray">01 — 04</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-gutter">
+<!-- Plug Item 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-off-white mb-6 overflow-hidden product-card-shadow flex items-center justify-center relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="A close-up shot of a designer three-pin power plug with a braided black fabric cable. The plug housing is made of matte polycarbonate with an embossed brand logo. The scene is shot with a shallow depth of field, blurring the background into a soft bokeh of a modern workspace with natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWzhNRsBWV6acsG7IRGZqSsm4UnP6D8hQUnmBKP78oJO097C0Q8WYlGOZ6V7qMMDz_c1YA6Xp3JU5iEByKSIkzRCg-H201yWtTIWNYhKmqJizcCyaL7hN0VPG4HZNKlMh5WFcQz7GKIYz6UKGhkiFYYo8mIp8DMzRw1dLfoorg3iptge_pcUPGTlSwUyPgrdvLy3zBgMJEgA2SbE7hR88v5DBIAL35fDqZrXOGtYRyFYeJKtad4PBNVV7q9xHoHjLZ9ibwfpYXw0w">
+<div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined bg-obsidian-black text-white p-2">add</span>
+</div>
+</div>
+<h4 class="font-headline-md text-headline-md text-obsidian-black mb-1">Textured Cable Plug</h4>
+<p class="font-label-caps text-label-caps text-heritage-gold">Braided Nylon &amp; Matte Poly</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md text-off-white mb-6">TRADITION HARDWARE</div>
+<p class="text-primary-fixed-dim max-w-sm mb-12">Building for the next hundred years. Our hardware is engineered with precision and finished by hand in our studio.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-off-white cursor-pointer hover:text-heritage-gold transition-colors">language</span>
+<span class="material-symbols-outlined text-off-white cursor-pointer hover:text-heritage-gold transition-colors">mail</span>
+<span class="material-symbols-outlined text-off-white cursor-pointer hover:text-heritage-gold transition-colors">phone</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-off-white mb-6">RESOURCES</h4>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Terms of Service</a>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Privacy Policy</a>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Trade Account</a>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-off-white mb-6">SUPPORT</h4>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Shipping</a>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Returns</a>
+<a class="block text-primary-fixed-dim hover:text-off-white transition-colors" href="#">Installation Guides</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-24 pt-8 border-t border-off-white border-opacity-10">
+<p class="font-label-caps text-label-caps text-primary-fixed-dim text-center">© 2024 TRADITION HARDWARE. ARCHITECTURAL QUALITY FOR GENERATIONS.</p>
+</div>
+</footer>
+<script>
+        // Smooth reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+
+        // Toggle interactive highlight on material selection
+        document.querySelectorAll('aside ul li').forEach(li => {
+            li.addEventListener('click', () => {
+                document.querySelectorAll('aside ul li span').forEach(s => s.classList.replace('text-obsidian-black', 'text-slate-gray'));
+                document.querySelectorAll('aside ul li span').forEach(s => s.classList.remove('font-semibold'));
+                li.querySelector('span:first-child').classList.replace('text-slate-gray', 'text-obsidian-black');
+                li.querySelector('span:first-child').classList.add('font-semibold');
+            });
+        });
+    </script>
+</body></html>

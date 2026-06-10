@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RayFancy | High-End Architectural Hardware</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#d4e4f6",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#261b01",
+                        "outline": "#777770",
+                        "surface-variant": "#e2e2e2",
+                        "slate-gray": "#536271",
+                        "primary-container": "#31322c",
+                        "tertiary-container": "#3c3011",
+                        "tertiary-fixed-dim": "#d9c49a",
+                        "surface-dim": "#dadada",
+                        "secondary-fixed-dim": "#b9c8da",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#394857",
+                        "on-primary-fixed-variant": "#464741",
+                        "on-surface-variant": "#464741",
+                        "secondary-container": "#d4e4f6",
+                        "on-secondary-fixed": "#0d1d2a",
+                        "primary": "#1c1d18",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#5e5f58",
+                        "tertiary-fixed": "#f6e0b4",
+                        "on-tertiary-fixed": "#251a01",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary": "#51606f",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#534525",
+                        "primary-fixed-dim": "#c7c7be",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#9a9a92",
+                        "inverse-primary": "#c7c7be",
+                        "heritage-gold": "#B5A27A",
+                        "on-error": "#ffffff",
+                        "background": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed": "#e4e3da",
+                        "on-secondary-container": "#576675",
+                        "outline-variant": "#c7c7be",
+                        "on-primary-fixed": "#1b1c17",
+                        "surface-container-low": "#f3f3f4",
+                        "inverse-surface": "#2f3131",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#aa9770",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "off-white": "#F9F9F8",
+                        "obsidian-black": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "section-gap": "120px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "label-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Open Sans"],
+                        "label-caps": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .text-outline-stroke {
+            -webkit-text-stroke: 1px rgba(181, 162, 122, 0.3);
+            color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-heritage-gold selection:text-white">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant opacity-95 backdrop-blur-sm">
+<div class="max-w-container-max mx-auto px-margin-desktop flex items-center justify-between h-20">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2" href="#">
+<img alt="RayFancy Logo" class="h-8 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsjzlY4aOiEKQWxw-VudNFf1rYWDnCgKqoa1ZZRg3HVBpigbg8J4d9Nv1gt48-igw_cm1nXtzUZnPY0MomDGRd-Hb6X0j1VlqEGqr0CfagAX7GieCmAR083pBfgyXfevEcvfCEVWpetNvlFjZKlgbJlatjUCz3sdsxHiaxgwjQudfw9JhRZZxmP2E1NhM8LIpPPFIb5wVxFUFc17fIgfckovBgWDVBHa3KCtOb4XCOCrYvXbfYqox9ZrH0qKKor9lPpsYM3rFHdjA"/>
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary">RayFancy</span>
+</a>
+<nav class="hidden md:flex items-center gap-8 ml-8">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-heritage-gold pb-1" href="#">Trade Collections</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Bespoke Services</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Resources</a>
+<a class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors" href="#">Projects</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden lg:flex font-label-caps text-label-caps text-secondary hover:text-primary transition-all">
+                    Search
+                </button>
+<a class="bg-primary text-white font-label-caps text-label-caps px-6 py-3 rounded-none hover:bg-heritage-gold transition-all duration-300" href="#">
+                    Trade Login
+                </a>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Tactile Excellence" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcRCLrilfK9WzBbKTqUZ8lFXnT9bon05IrQnHLrzzlqMGvcfzQDz-E82XDnXQoZs2A8CGF1W7VtIDGzwLX_mUscc970ExT-wbWhd_XhJVJvQk4dw9vBe6Dr_v0E_24xVbYPc8hHKVJkx_G-LE1-Dp19_mepAGwCFKvZUMZejNQjGo3bAwHHB8l4oYfRJbGeZEwBwDrUPx9Bv9sMnCrkUfe6VFQMd9nda5SJOoKZ7Xc7IZx6qBgHVRGUKj0qmuHV8DHpnkQ0-jV9_Y"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="max-w-2xl">
+<span class="inline-block font-label-caps text-label-caps text-heritage-gold mb-6 tracking-[0.2em]">B2B EXCELLENCE</span>
+<h1 class="font-display-lg text-display-lg mb-8 leading-tight">Tactile Excellence.<br/>Realized Efficiently.</h1>
+<p class="font-body-lg text-body-lg text-slate-gray mb-10 max-w-xl">
+                        Premium architectural hardware without the brand markup. Engineered for global B2B delivery and seamless technical integration.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-obsidian-black text-white font-label-caps text-label-caps px-8 py-5 hover:bg-heritage-gold transition-all duration-300">
+                            Request B2B Catalog
+                        </button>
+<button class="border border-slate-gray text-primary font-label-caps text-label-caps px-8 py-5 hover:bg-surface-container transition-all duration-300">
+                            Partner With Us
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Identity: The RayFancy Edge -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg mb-4">The RayFancy Edge</h2>
+<p class="font-body-md text-body-md text-slate-gray">Our manufacturing process prioritizes technical precision and material integrity, ensuring each component meets the rigorous demands of global architecture.</p>
+</div>
+<div class="hidden md:block">
+<span class="font-headline-lg text-headline-lg text-outline-stroke">EST. 1994</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h3 class="font-headline-md text-headline-md mb-4">8-Step Precision Polishing</h3>
+<p class="font-body-md text-body-md text-slate-gray">Every metal plate undergoes eight distinct stages of mechanical and hand polishing to achieve a flawless, light-catching finish.</p>
+</div>
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<h3 class="font-headline-md text-headline-md mb-4">100k-Cycle Durability</h3>
+<p class="font-body-md text-body-md text-slate-gray">Mechanisms are tested to exceed 100,000 cycles, providing a lifetime of reliable tactile feedback and electrical safety.</p>
+</div>
+<div class="group border-t-2 border-primary-container/10 pt-12">
+<span class="material-symbols-outlined text-heritage-gold mb-8 text-4xl" style="font-variation-settings: 'FILL' 1;">factory</span>
+<h3 class="font-headline-md text-headline-md mb-4">Factory-Direct Pricing</h3>
+<p class="font-body-md text-body-md text-slate-gray">By controlling the entire supply chain from raw material to final assembly, we eliminate middleman premiums for our B2B partners.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Collections Preview -->
+<section class="bg-off-white py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg mb-4">The Collections</h2>
+<p class="font-body-md text-body-md text-slate-gray">Engineered for architectural harmony across any interior landscape.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Collection Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up photography of Series T Toggle switches in a brushed antique brass finish against a dark textured wallpaper. The lighting is focused and warm, highlighting the tactile metal toggle and the fine texture of the plate. The overall mood is sophisticated, professional, and reflects a heritage luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6grfgP7ZapljcxUxW2fhZCvH7rfYW_uxU2PBoVPhF7L5OxP_C7OlE2wJDvSK3gW-0F0Q5zt71OD_lx9wnzkzDjYslEhmhFOQaATnwO8sGi9UoFZSae2QeqxKFxORMroKi3_BOhCVoh1_mV_l0aRWE6Yy_lu5C4OIDtEs-egCThwDfTSH36a8sPm7iAOiDrxPgz0xCnLALmCXTdBWI3uE2NMXEsTLE8oKmB83hp3eqGo2L0lQA3KBtq8v-oNc2Uc2_DXgdOWnQAnI"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Series T Toggles</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">Heritage-inspired mechanical switches with solid brass internals.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Collection Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist architectural electrical panels in a matte black finish mounted on a light gray concrete wall. The design is clean, geometric, and perfectly aligned, evoking a sense of industrial reliability and editorial elegance. Soft, natural daylight from a side window creates subtle shadows that emphasize the panels' depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ikItS61xTXFFy_EO13Nmqy9u87IeWjhcyAHYsvqzbu7nIqbHvpah5J65jSsgjae7hrPdpxTQuikv2GnV1o8sy5QbxR0jrNfJk2G3wycZ0LEMwPdw4ZcwsC4hVh-hYj0kloJC3LKMtaFv1ctw-du56_vYusWDfV3HTdTFEAZ0XKHZo67rHcSQCupIpmz_Lk5zsiMX0jfkamKqpAeR5SPtXbyVPoHotnAbB53DeBMntsJEymmrp8Z8KNCDTJU8Y9cMDLkp2eGDo_o"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Architectural Panels</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">Ultra-slim profiles for contemporary commercial and residential spaces.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Collection Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-square overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-end precision electrical sockets in a brushed silver aluminum finish, installed on a clean white gallery wall. The sockets feature high-quality internal copper components visible in a stylized cutaway view nearby. The lighting is high-key and modern, emphasizing the product's technical precision and industrial quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBok11r1cfwerkR7KrM_lcIY04Vw6xhbVznXkKcXXEfMdIAkdjF_LXjMaXLjp6tvoIiMWBG1pWamHqoE7aTwJ-DdRQDSOgmUj6-s0MiSqi2uEQB6v6KwzgmV6zF2ZCsPMnmAE6gkQsZLYmZTJe7R-6U8szV7rFFiXYil_WweLoGtxdT-D22ODhpeyzlIDT2aJ9gCxPsQzR6Umi5cPXenDkE48PMtyJzkLVWq7QGU_TVvRztrhobGweRr0dzeAGrPH9VrdfVY4OSFnM"/>
+<div class="absolute inset-0 bg-obsidian-black/10 group-hover:bg-obsidian-black/0 transition-all duration-300"></div>
+</div>
+<h4 class="font-headline-md text-headline-md mb-2">Precision Sockets</h4>
+<p class="font-body-md text-body-md text-slate-gray mb-4">International standards with uncompromising build quality and safety.</p>
+<div class="flex items-center gap-2 text-heritage-gold font-label-caps text-label-caps">
+                            View Collection <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sector Focus -->
+<section class="py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-6 block">PROJECT APPLICATIONS</span>
+<h2 class="font-headline-lg text-headline-lg mb-8">Specialized Solutions for Global Sectors</h2>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">hotel</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Hospitality</h4>
+<p class="font-body-md text-body-md text-slate-gray">Bespoke bedside controls and unified guestroom experiences for luxury hotel groups.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Commercial</h4>
+<p class="font-body-md text-body-md text-slate-gray">Heavy-duty modules designed for high-traffic office environments and public spaces.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="bg-primary-container text-heritage-gold p-3 shrink-0">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-base mb-1">Residential</h4>
+<p class="font-body-md text-body-md text-slate-gray">High-fidelity finishes that transform functional utility into interior design statements.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 relative">
+<div class="relative rounded-none overflow-hidden h-[600px] shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A wide architectural shot of a luxury hotel suite lobby featuring premium wood paneling and marble details. In the foreground, a RayFancy gold switch panel is installed on a fluted wood column, catching the warm ambient glow of a designer floor lamp in the background. The scene exudes executive luxury and high-end commercial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5IEgrzYsK8tgv0BRe2ES9XPUOa0B2yCpA2oD7YKNxaWd6SZNbVFYjWg5ivUlz1NIXyBFlRhvy8gcxTNWVpicLzfUgH_MpCdrP6XFUcobar1H9_87J8AJ1YMuK7EEsLq5LZxdTt1I9IyfomjaNPphOqTc16YDveDvAx2QjIUmt0vv4UwbgEmBaK8DfbK-a3oFTalSNBPlP4hj3U56n8ILZqXusMrKWOYCJXJTdNumU87v022nghC6aG0zReQ0BeX8CooaBvNTvTts"/>
+</div>
+<div class="absolute -bottom-8 -left-8 bg-heritage-gold p-12 hidden md:block">
+<p class="font-headline-md text-white italic max-w-[200px]">"Excellence is in the finish."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Authority Block -->
+<section class="py-section-gap bg-primary text-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="bg-primary-container/40 p-12 border-l-4 border-heritage-gold">
+<span class="font-label-caps text-label-caps text-heritage-gold mb-6 block">RESOURCE CENTER</span>
+<h2 class="font-headline-md text-headline-md mb-6 uppercase tracking-wider">Technical Documentation</h2>
+<p class="font-body-md text-body-md text-on-primary-container mb-10">Access our comprehensive library of BIM/CAD models, technical datasheets, and wiring diagrams for seamless integration into your project specs.</p>
+<a class="inline-flex items-center gap-4 font-label-caps text-label-caps text-white group" href="#">
+                            Download Specs <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">file_download</span>
+</a>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg mb-8">Global Project Deployment</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12">From Singaporean high-rises to London's boutique hotels, RayFancy components are specified by the world's leading MEP engineers and architectural firms.</p>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">45+</p>
+<p class="font-label-caps text-label-caps text-xs">Countries Supplied</p>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">1.2M</p>
+<p class="font-label-caps text-label-caps text-xs">Units Installed</p>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg text-heritage-gold mb-2">0.02%</p>
+<p class="font-label-caps text-label-caps text-xs">Defect Rate</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-section-gap bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div class="sticky top-40">
+<h2 class="font-headline-lg text-headline-lg mb-6">Specified by the Best</h2>
+<p class="font-body-md text-body-md text-slate-gray">Our B2B partners choose us for the intersection of industrial reliability and editorial elegance.</p>
+</div>
+<div class="space-y-24">
+<blockquote class="relative border-l-2 border-heritage-gold pl-12">
+<p class="font-body-lg text-body-lg italic mb-8">"RayFancy provided a level of customization and material quality that we simply couldn't find with traditional high-street brands. Their factory-direct model made a luxury finish possible within our client's commercial budget."</p>
+<footer class="font-label-caps text-label-caps">
+<span class="block font-bold text-primary">Marcus Thornton</span>
+<span class="text-slate-gray">Senior Architect, Studio Apex</span>
+</footer>
+</blockquote>
+<blockquote class="relative border-l-2 border-heritage-gold pl-12">
+<p class="font-body-lg text-body-lg italic mb-8">"For hospitality projects, durability is paramount. We've specified Series T across three major hotel developments, and the tactile feedback remains as crisp as the day of installation."</p>
+<footer class="font-label-caps text-label-caps">
+<span class="block font-bold text-primary">Elena Rodriguez</span>
+<span class="text-slate-gray">Procurement Director, LUXE Stays</span>
+</footer>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Gen Form -->
+<section class="py-section-gap bg-off-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-white p-12 md:p-24 shadow-sm border border-outline-variant/10">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">Start a Global Partnership</h2>
+<p class="font-body-md text-body-md text-slate-gray">Inquire about bulk pricing, custom finishes, or technical specifications for your upcoming project.</p>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-10">
+<div>
+<label class="font-label-caps text-label-caps block mb-2">FULL NAME</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="Enter your name" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">COMPANY EMAIL</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="name@company.com" type="email"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">FIRM / COMPANY</label>
+<input class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md" placeholder="Architectural firm or Developer" type="text"/>
+</div>
+</div>
+<div class="space-y-10">
+<div>
+<label class="font-label-caps text-label-caps block mb-2">INTEREST AREA</label>
+<select class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md">
+<option>B2B Catalog Request</option>
+<option>Custom Finishing Inquiry</option>
+<option>Technical Specification Support</option>
+<option>Bulk Project Quote</option>
+</select>
+</div>
+<div>
+<label class="font-label-caps text-label-caps block mb-2">PROJECT DESCRIPTION</label>
+<textarea class="w-full border-b-2 border-primary-container/20 py-3 bg-transparent focus:border-heritage-gold transition-colors outline-none font-body-md resize-none" placeholder="Tell us about your requirements" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-white font-label-caps text-label-caps py-5 hover:bg-heritage-gold transition-all duration-300">
+                                Submit Professional Inquiry
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-obsidian-black text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between">
+<div class="mb-12 md:mb-0">
+<div class="flex items-center gap-2 mb-8">
+<span class="font-headline-md text-headline-md text-heritage-gold">RayFancy</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container max-w-xs mb-8">
+                    Industrial Reliability, Editorial Elegance. Manufacturing the world's most precise tactile hardware.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-on-primary-container/30 flex items-center justify-center hover:border-heritage-gold hover:text-heritage-gold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 border border-on-primary-container/30 flex items-center justify-center hover:border-heritage-gold hover:text-heritage-gold transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">SOLUTIONS</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Series T Toggles</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Architectural Panels</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Precision Sockets</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Smart Integration</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">COMPANY</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Company Information</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Technical Support</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Global Offices</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Projects</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">LEGAL</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-white transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary-container/10 py-10 px-margin-desktop text-center">
+<p class="font-body-md text-body-md text-on-primary-container opacity-60">
+                © 2024 RayFancy. Industrial Reliability, Editorial Elegance.
+            </p>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Instant activation for hero
+        const hero = document.querySelector('section');
+        if(hero) {
+            hero.classList.remove('opacity-0', 'translate-y-10');
+        }
+    </script>
+</body></html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tradition Hardware | Architectural Quality for Generations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0d1d2a",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed-dim": "#b9c8da",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#251a01",
+                    "secondary-container": "#d4e4f6",
+                    "on-primary-fixed": "#1b1c17",
+                    "inverse-primary": "#c7c7be",
+                    "tertiary-fixed-dim": "#d9c49a",
+                    "inverse-on-surface": "#f0f1f1",
+                    "heritage-gold": "#B5A27A",
+                    "tertiary": "#261b01",
+                    "primary": "#1c1d18",
+                    "surface-dim": "#dadada",
+                    "primary-fixed-dim": "#c7c7be",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f3f4",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "primary-container": "#31322c",
+                    "on-surface-variant": "#464741",
+                    "on-primary-container": "#9a9a92",
+                    "obsidian-black": "#000000",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#f6e0b4",
+                    "on-background": "#1a1c1c",
+                    "slate-gray": "#536271",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#5e5f58",
+                    "secondary": "#51606f",
+                    "primary-fixed": "#e4e3da",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed": "#d4e4f6",
+                    "on-secondary-fixed-variant": "#394857",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#534525",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-container": "#576675",
+                    "on-tertiary-container": "#aa9770",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#464741",
+                    "outline": "#777770",
+                    "outline-variant": "#c7c7be",
+                    "off-white": "#F9F9F8",
+                    "tertiary-container": "#3c3011"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Open Sans"],
+                    "label-md": ["Montserrat"],
+                    "body-md": ["Open Sans"],
+                    "display-lg": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-caps": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tactile-shadow {
+            box-shadow: 0 20px 40px rgba(49, 50, 44, 0.05);
+        }
+        .input-underline {
+            border-bottom: 2px solid #536271;
+            background: transparent;
+            transition: border-color 0.3s ease;
+        }
+        .input-underline:focus {
+            border-color: #B5A27A;
+            outline: none;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-off-white text-on-surface selection:bg-heritage-gold selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full bg-surface z-50 border-b border-slate-gray border-opacity-10 h-20 transition-all duration-300" id="main-nav">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full">
+<div class="font-headline-md text-headline-md font-bold text-obsidian-black tracking-tight">
+                TRADITION HARDWARE
+            </div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-label-caps text-label-caps text-heritage-gold border-b-2 border-heritage-gold pb-1 hover:text-heritage-gold transition-colors duration-300" href="#products">Products</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300" href="#about">About Us</a>
+<a class="font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 tracking-widest hover:bg-heritage-gold transition-colors duration-300">
+                    CATALOGUE
+                </button>
+<button class="md:hidden text-primary" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 z-10 py-12 md:py-0">
+<p class="font-label-caps text-label-caps text-heritage-gold mb-6 tracking-[0.2em]">SINCE 1924</p>
+<h1 class="font-display-lg text-display-lg text-obsidian-black mb-8 leading-tight">
+                    Quality in <br>Every Click.
+                </h1>
+<p class="font-body-lg text-body-lg text-slate-gray mb-10 max-w-md">
+                    Heirloom-grade electrical hardware crafted from solid brass and precision-engineered for a lifetime of tactile satisfaction.
+                </p>
+<div class="flex space-x-6">
+<button class="bg-obsidian-black text-white px-10 py-5 font-label-caps text-label-caps hover:bg-heritage-gold transition-all duration-300">
+                        EXPLORE COLLECTION
+                    </button>
+</div>
+</div>
+<div class="md:col-span-7 relative h-[500px] md:h-[800px]">
+<div class="absolute inset-0 tactile-shadow bg-off-white overflow-hidden rounded-sm">
+<img alt="Classic toggle switch" class="w-full h-full object-cover" data-alt="A macro, high-resolution close-up of a solid brushed brass double toggle switch mounted on a pristine off-white gallery wall. The lighting is soft and architectural, highlighting the subtle grain of the metal and the precision of the mechanical toggle. The background is minimalist and clean, reflecting a high-end luxury interior aesthetic with deep shadows and warm metallic highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Y6a2y1ai3oc8mK3g41DJZp_SPI-drax9lFQCHtEsMQv5H8Ob7h-25krdhUsbQfw1yYaqLgUHLqyQO65d6I02PWSW2yC6ZUEHGLh0Hb6_wut54WcmXzEhctysGBaPv6eJvvIvt-w3KNX7oDjMNTKbDokuma4okdhEAKn1S1qNC3NIn35y4fgpdXNuarK9FBvRILDKRguTVAw_Q37dXvu2SXPmZMFUZCiT3tOPIqjOsIF5OP4o12y0sq1dfGtpAYtnG3EXug9IeTU">
+</div>
+</div>
+</div>
+</section>
+<!-- Essential Collection -->
+<section class="py-section-gap bg-white" id="products">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black mb-4">The Essential Collection</h2>
+<p class="font-body-md text-body-md text-slate-gray max-w-xl">Curated archetypes for the modern architectural project, spanning traditional toggles to high-current power solutions.</p>
+</div>
+<button class="mt-8 md:mt-0 font-label-caps text-label-caps text-obsidian-black border-b-2 border-obsidian-black pb-1 hover:text-heritage-gold hover:border-heritage-gold transition-all">
+                    VIEW ALL PRODUCTS
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-off-white mb-6 overflow-hidden tactile-shadow transition-transform duration-500 group-hover:-translate-y-2">
+<img alt="Toggle Switch" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist product shot of a single matte black toggle switch plate against a neutral light gray background. The switch is centered, showcasing its sharp edges and industrial texture. Soft overhead lighting creates a slight gradient across the plate, emphasizing its premium powder-coated finish and architectural weight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgkreWK-7KN2OGMqsdnsmCklQ3ncXpq867-mPqq6Bvx5EIYK4XMZmbCSAsXC4N2sibiAOx7Va_OCvMSUe6r01KG7tLMPVElsdVlsAaPHL1VRtDvJ2OUYDtJs8Q5Bvz1NnEk5QXmdM7l9sDpHHsNfxDUYoisFmZAOOmV42q4M1P4qM4SkU1hVoK5zDbNV6bx7oge1ecmZ-z3yVTMfeDwMpJUb6NSM2OZT8vAeZXhj_bWGb97zO2JgEnnFMgk4WID5c-l0KReO_PtGA">
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-obsidian-black mb-1">Toggle Switches</h3>
+<p class="font-body-md text-body-md text-slate-gray">Classic flick mechanism in 5 finishes.</p>
+</div>
+<span class="font-label-caps text-label-caps text-heritage-gold mt-2">FROM $85</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-off-white mb-6 overflow-hidden tactile-shadow transition-transform duration-500 group-hover:-translate-y-2">
+<img alt="Push Button" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-end architectural photo of circular brass push buttons mounted on a dark walnut wood panel. The buttons have a concentric machined texture that catches a soft lateral light. The aesthetic is warm and tactile, suggesting a bespoke, handcrafted interior design with attention to mechanical detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpLSQMYLKekLJ8YQlS9xUW4TycycO25bRWEmCZgN932BD258IQOCqO5azUrN9SxkKLr7pEvTIsqJHPaRUsTlXQxbM_KsAfR5hCVnIq67bgzMtFJK5C7nDHP5MvHdyh-17BlxTlgQZmv855RBXxQFJOXkRDzxIkz78I27fovFDYHBNKFkhzJvLuTPQdEcelPLRACyKD4OdjvwYvLMFjSHnyoKRL4yYiKnbVRfKlGT5iH16R6Xm3LwB_YkXAq3ydSkC9UIWCuZaXpHs">
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-obsidian-black mb-1">Push Buttons</h3>
+<p class="font-body-md text-body-md text-slate-gray">Silent mechanical action for ambient spaces.</p>
+</div>
+<span class="font-label-caps text-label-caps text-heritage-gold mt-2">FROM $110</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-off-white mb-6 overflow-hidden tactile-shadow transition-transform duration-500 group-hover:-translate-y-2">
+<img alt="Power Outlet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An elegant, studio-lit photo of a high-quality UK-style power socket in antique bronze. The socket features a heavy metal plate with clean, sharp screw-less design. It sits against a textured ivory plaster wall, emphasizing the contrast between the industrial metal and the organic wall surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjPS0NNe0DR2mZLXrNOj6xUfMktHfqkf9zWJpVG1c6AQ3nVGFR0H_06Wr8qh-7eAIIrWOzUYZRQAubmltC2df935LcxuD49QrMBSCqxfhb8VgZVUL8LCncwCUwh1ruZd5JWHp8dKeA8I55IGKBmpim3eSA9zMC_LaJdzlPFcbYQnJ2R7k4gCN469jxpzMt6xHISprDlwAYTfebx7B-gXoAEKPG_MXsfO0wSlVoM0civMmtuG--JFGs3Rd5qfReb-FkeaTE3mKcTo4">
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-obsidian-black mb-1">Power Outlets</h3>
+<p class="font-body-md text-body-md text-slate-gray">Heavy-duty sockets with integrated USB-C.</p>
+</div>
+<span class="font-label-caps text-label-caps text-heritage-gold mt-2">FROM $95</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Crafted for Longevity -->
+<section class="py-section-gap bg-obsidian-black text-white relative overflow-hidden" id="about">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<img alt="Craftsmanship" class="w-full h-[600px] object-cover opacity-80 filter grayscale" data-alt="A dramatic black and white workshop photo showing a craftsman's hands precisely assembling a brass mechanical switch component. Soft light from a side window highlights the metallic shavings and the intricate gears. The scene conveys expertise, heritage, and the heavy-duty nature of the hardware's internal mechanics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4dVIkt6mJsyteUh14E1-E7DT2TwhC3D-vEsZOlYc9kTe6bawx2FXIDW4NSk2IzJFf5xLHNF3A0xUYtwZb7T0-DEJx56O4Ak1-Qonj-GpLy4onlh4BnPNxiGZof76DEM2CNQHH5IJiWDYPG_CbHaj81co-s91zK84u0XGxo64AZdTAMT0o4_fWh7dztnMgRD-7gXei-5y-lztM7_BWBkQVIETiF6TrfocPmW2TddX2xMX4R1SfKy-ryfba-EcHuL5_a_4NFJ8gxXY">
+<div class="absolute -bottom-10 -right-10 bg-heritage-gold p-12 hidden md:block">
+<p class="font-headline-md text-headline-md text-primary leading-tight">40,000 Click <br>Warranty.</p>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-8">Crafted for Longevity.</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-heritage-gold flex items-center justify-center">
+<span class="material-symbols-outlined text-heritage-gold">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Mechanical Integrity</h4>
+<p class="font-body-md text-body-md text-on-primary-container">Unlike modern plastic alternatives, our internals are milled from solid brass and steel, ensuring a positive, heavy engagement with every use.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-heritage-gold flex items-center justify-center">
+<span class="material-symbols-outlined text-heritage-gold">history_edu</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Patinated Finishes</h4>
+<p class="font-body-md text-body-md text-on-primary-container">Our unlacquered finishes are designed to age gracefully, developing a unique character that tells the story of your home over decades.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 border border-heritage-gold flex items-center justify-center">
+<span class="material-symbols-outlined text-heritage-gold">architecture</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">Architectural Standards</h4>
+<p class="font-body-md text-body-md text-on-primary-container">Meeting global safety standards without compromising on the thin-plate aesthetic favored by leading interior designers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-gap bg-off-white">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<p class="font-label-caps text-label-caps text-heritage-gold text-center mb-4">THE PROFESSIONAL CHOICE</p>
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black text-center mb-20">Trusted by Architects globally.</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap- gutter">
+<div class="p-12 bg-white tactile-shadow">
+<div class="flex text-heritage-gold mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg italic text-on-surface-variant mb-8">"The weight of these switches is immediately apparent. In a world of plastic disposability, Tradition Hardware stands alone."</p>
+<div>
+<p class="font-label-md text-label-md text-obsidian-black">Julian Thorne</p>
+<p class="font-label-caps text-[10px] text-slate-gray">PRINCIPAL AT THORNE STUDIO</p>
+</div>
+</div>
+<div class="p-12 bg-white tactile-shadow transform md:-translate-y-8">
+<div class="flex text-heritage-gold mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg italic text-on-surface-variant mb-8">"We specify Tradition for all our heritage restoration projects. Their attention to material authenticity is unparalleled in the industry."</p>
+<div>
+<p class="font-label-md text-label-md text-obsidian-black">Elena Rossi</p>
+<p class="font-label-caps text-[10px] text-slate-gray">HERITAGE PRESERVATION ARCHITECT</p>
+</div>
+</div>
+<div class="p-12 bg-white tactile-shadow">
+<div class="flex text-heritage-gold mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-body-lg italic text-on-surface-variant mb-8">"The unlacquered brass developed a beautiful patina within months. It feels like it has always been part of the house."</p>
+<div>
+<p class="font-label-md text-label-md text-obsidian-black">Marcus Chen</p>
+<p class="font-label-caps text-[10px] text-slate-gray">RESIDENTIAL INTERIOR DESIGNER</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact / Trade Section -->
+<section class="py-section-gap bg-surface" id="contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-24">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-obsidian-black mb-8">Trade Accounts &amp; Bespoke Orders.</h2>
+<p class="font-body-lg text-body-lg text-slate-gray mb-10">We partner with architects and designers to provide custom finishes and bulk quantities for large-scale developments.</p>
+<div class="space-y-6">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-heritage-gold">mail</span>
+<span class="font-body-md text-body-md">trade@traditionhardware.com</span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-heritage-gold">call</span>
+<span class="font-body-md text-body-md">+44 (0) 20 7946 0123</span>
+</div>
+</div>
+</div>
+<form class="space-y-12 bg-white p-12 tactile-shadow">
+<div class="relative">
+<label class="font-label-caps text-label-caps text-slate-gray block mb-2">FULL NAME</label>
+<input class="w-full py-4 input-underline font-body-md" placeholder="Johnathan Doe" type="text">
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-slate-gray block mb-2">EMAIL ADDRESS</label>
+<input class="w-full py-4 input-underline font-body-md" placeholder="john@studio.com" type="email">
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-slate-gray block mb-2">PROJECT TYPE</label>
+<select class="w-full py-4 input-underline font-body-md border-x-0 border-t-0 focus:ring-0">
+<option>Private Residential</option>
+<option>Commercial / Hospitality</option>
+<option>Heritage Restoration</option>
+</select>
+</div>
+<button class="w-full bg-primary text-white font-label-caps text-label-caps py-6 hover:bg-heritage-gold transition-all duration-300" type="submit">
+                    REQUEST TRADE CATALOGUE
+                </button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary pt-24 pb-12">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-md text-headline-md text-off-white mb-6">TRADITION HARDWARE</div>
+<p class="font-body-md text-primary-fixed-dim max-w-xs">Forging the future of electrical hardware by honoring the methods of the past.</p>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">COLLECTIONS</h5>
+<ul class="space-y-4 font-body-md text-primary-fixed-dim">
+<li><a class="hover:text-off-white transition-colors" href="#">The Signature Brass</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Obsidian Matte</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Brushed Nickel</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Bespoke Finishes</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">COMPANY</h5>
+<ul class="space-y-4 font-body-md text-primary-fixed-dim">
+<li><a class="hover:text-off-white transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Craftsmanship</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Trade Account</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-heritage-gold mb-6">SUPPORT</h5>
+<ul class="space-y-4 font-body-md text-primary-fixed-dim">
+<li><a class="hover:text-off-white transition-colors" href="#">Installation Guides</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-off-white transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-white border-opacity-10 pt-12 flex flex-col md:flex-row justify-between items-center text-primary-fixed-dim font-label-caps text-[10px] tracking-widest">
+<p>© 2024 TRADITION HARDWARE. ARCHITECTURAL QUALITY FOR GENERATIONS.</p>
+<div class="flex space-x-8 mt-6 md:mt-0">
+<a class="hover:text-off-white transition-colors" href="#">INSTAGRAM</a>
+<a class="hover:text-off-white transition-colors" href="#">PINTEREST</a>
+<a class="hover:text-off-white transition-colors" href="#">LINKEDIN</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and navigation effects
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('tactile-shadow');
+                nav.classList.add('h-16');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.remove('tactile-shadow');
+                nav.classList.add('h-20');
+                nav.classList.remove('h-16');
+            }
+        });
+
+        function toggleMobileMenu() {
+            // Simple logic for menu toggle visualization
+            console.log('Mobile menu toggled');
+        }
+
+        // Active state observer for navigation links
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const links = document.querySelectorAll('nav a');
+                    links.forEach(link => {
+                        link.className = 'font-label-caps text-label-caps text-slate-gray hover:text-heritage-gold transition-colors duration-300';
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.className = 'font-label-caps text-label-caps text-heritage-gold border-b-2 border-heritage-gold pb-1';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body></html>
