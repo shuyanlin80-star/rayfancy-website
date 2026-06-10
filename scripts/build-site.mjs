@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -626,6 +626,63 @@ function tuneHeroCopyLayout(html, out) {
   return next;
 }
 
+function useOptimizedAssetImages(html) {
+  return html
+    .replace(/(src="\/assets\/)(products|company)(\/[^"?]+\.(?:jpe?g))(\?[^"]*)?"/gi, "$1optimized/$2$3$4\"")
+    .replace(/(url\(['"]?\/assets\/)(products|company)(\/[^'")?]+\.(?:jpe?g))(\?[^'")]*)?(['"]?\))/gi, "$1optimized/$2$3$4$5");
+}
+
+function addImagePerformanceHints(html) {
+  return html.replace(/<img\b[^>]*>/g, (tag) => {
+    let next = tag;
+    if (!/\bdecoding=/.test(next)) {
+      next = next.replace("<img", '<img decoding="async"');
+    }
+
+    const isPriorityImage = /rayfancy-(?:hero-bg|projects-hero-img|about-hero-bg|resources-hero-img|contact-hero-img)|RayFancy switch quality laboratory/.test(next);
+    if (!/\bloading=/.test(next)) {
+      next = next.replace("<img", isPriorityImage ? '<img loading="eager"' : '<img loading="lazy"');
+    }
+    if (isPriorityImage && !/\bfetchpriority=/.test(next)) {
+      next = next.replace("<img", '<img fetchpriority="high"');
+    }
+    return next;
+  });
+}
+
+function optimizeHeadResourceHints(html) {
+  let next = html;
+  if (!next.includes('rel="preconnect" href="https://fonts.googleapis.com"')) {
+    next = next.replace(
+      "<head>",
+      `<head>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="preconnect" href="https://cdn.tailwindcss.com">`
+    );
+  }
+
+  const seenStylesheets = new Set();
+  let hasMaterialSymbolsStylesheet = false;
+  let hasMontserratOpenSansStylesheet = false;
+  return next.replace(/<link\s+href="([^"]+)"\s+rel="stylesheet"\s*\/?>/g, (tag, href) => {
+    if (seenStylesheets.has(href)) {
+      return "";
+    }
+    if (href.includes("Montserrat") && href.includes("Open+Sans")) {
+      if (hasMontserratOpenSansStylesheet) {
+        return "";
+      }
+      hasMontserratOpenSansStylesheet = true;
+    }
+    if (href.includes("Material+Symbols+Outlined")) {
+      if (hasMaterialSymbolsStylesheet) {
+        return "";
+      }
+      hasMaterialSymbolsStylesheet = true;
+    }
+    seenStylesheets.add(href);
+    return tag;
+  });
+}
+
 function addQualityPageStyles(html) {
   return html.replace("</style>", `\n  .rayfancy-quality-eyebrow{font-size:14px!important;letter-spacing:.24em!important;}\n  .rayfancy-quality-card{background:#172838;border:1px solid rgba(210,176,109,.22);box-shadow:0 24px 60px rgba(0,0,0,.22);}\n  .rayfancy-quality-card-media{height:210px;overflow:hidden;background:#0e1c29;}\n  .rayfancy-quality-card-img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.03);}\n  .rayfancy-quality-card-content{position:relative;min-height:250px;padding:30px 34px 34px;background:linear-gradient(180deg,#1b3143,#132536);}\n  .rayfancy-quality-card .material-symbols-outlined{position:absolute;top:28px;right:30px;font-size:42px!important;opacity:.16!important;color:#d2b06d!important;}\n  .rayfancy-quality-docs{position:relative;overflow:hidden;background:#11150f!important;color:#fff;}\n  .rayfancy-quality-docs::before{content:\"\";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,21,15,.90),rgba(17,21,15,.66),rgba(17,21,15,.78)),url('/assets/products/premium-switch-closeup-202606072357.jpeg') center/cover no-repeat;}\n  .rayfancy-quality-docs>div{position:relative;z-index:1;}\n  .rayfancy-quality-docs h2,.rayfancy-quality-docs h4{color:#fff!important;}\n  .rayfancy-quality-docs p{color:rgba(255,255,255,.72)!important;}\n  .rayfancy-doc-icon{width:112px!important;height:112px!important;border:0!important;border-radius:0!important;background:rgba(255,255,255,.10)!important;backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);}\n  .rayfancy-doc-icon span{color:#d2b06d!important;}\n  .rayfancy-quality-cta-card{background-image:linear-gradient(90deg,rgba(4,18,31,.88),rgba(4,18,31,.68),rgba(4,18,31,.22)),url('/assets/products/premium-architectural-202606080002.jpeg')!important;background-size:cover!important;background-position:center!important;}\n  .rayfancy-footer-social-plain{font-size:42px!important;opacity:.52!important;color:#d2b06d!important;filter:drop-shadow(0 12px 22px rgba(0,0,0,.24));}\n  .rayfancy-footer-social-plain:hover{opacity:.86!important;}\n  .rayfancy-quality-footer-heading{font-size:22px!important;letter-spacing:.24em!important;color:#d2b06d!important;}\n  .rayfancy-quality-footer-link{font-size:16px!important;line-height:1.45!important;color:rgba(255,255,255,.54)!important;}\n  .rayfancy-quality-footer-link:hover{color:#fff!important;}\n  .rayfancy-quality-flow{row-gap:28px!important;}\n  .rayfancy-quality-flow h4{font-size:12px!important;letter-spacing:.18em!important;}\n  .rayfancy-quality-flow p{font-size:15px!important;line-height:1.55!important;}\n  .rayfancy-quality-flow-dot{box-shadow:0 0 0 8px #f9f9f8!important;}\n  .rayfancy-quality-metric{font-size:52px!important;letter-spacing:.02em!important;color:#d2b06d!important;}\n  .rayfancy-quality-metric-title{font-size:12px!important;letter-spacing:.18em!important;color:#fff!important;}\n  .rayfancy-quality-metric-copy{font-size:16px!important;line-height:1.6!important;color:rgba(255,255,255,.68)!important;opacity:1!important;}\n  @media (max-width:768px){.rayfancy-quality-card-media{height:190px}.rayfancy-quality-card-content{min-height:auto;padding:26px}.rayfancy-quality-metric{font-size:42px!important}.rayfancy-quality-footer-heading{font-size:18px!important}.rayfancy-quality-footer-link{font-size:15px!important;}}\n</style>`);
 }
@@ -1176,6 +1233,22 @@ async function buildPreviousHomepageSections() {
   return `<!-- Previous Stitch Homepage Sections Preserved -->\n${html.slice(start, end)}`;
 }
 
+async function removeOriginalLargeImagesFromDist() {
+  const dirs = [
+    path.join(dist, "assets/products"),
+    path.join(dist, "assets/company"),
+  ];
+  for (const dir of dirs) {
+    const entries = await readdir(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const ext = path.extname(entry.name).toLowerCase();
+      if (entry.isFile() && (ext === ".jpg" || ext === ".jpeg")) {
+        await rm(path.join(dir, entry.name));
+      }
+    }
+  }
+}
+
 async function buildPage(page) {
   let html = await readFile(path.join(page.root ?? stitchRoot, page.src), "utf8");
   html = replaceImages(html, page.images);
@@ -1255,6 +1328,9 @@ async function buildPage(page) {
     html = tuneResourcesPage(html);
   }
   html = tuneHeroCopyLayout(html, page.out);
+  html = useOptimizedAssetImages(html);
+  html = addImagePerformanceHints(html);
+  html = optimizeHeadResourceHints(html);
   return html;
 }
 
@@ -1273,6 +1349,7 @@ if (!checkOnly) {
   await rm(dist, { recursive: true, force: true });
   await mkdir(dist, { recursive: true });
   await cp(publicDir, dist, { recursive: true });
+  await removeOriginalLargeImagesFromDist();
   for (const [name, html] of builtPages) {
     await writeFile(path.join(dist, name), html);
   }
