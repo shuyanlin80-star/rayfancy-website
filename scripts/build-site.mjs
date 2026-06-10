@@ -588,6 +588,44 @@ function addRayFancyMetadata(html, title) {
   .rayfancy-quote-card{width:220px!important;padding:22px 24px!important}.rayfancy-kpi-number{font-size:32px!important;}.rayfancy-social-icon{width:48px!important;height:48px!important;}}\n</style>\n</head>`);
 }
 
+function tuneHeroCopyLayout(html, out) {
+  const heroPages = new Set(["index.html", "quality.html", "projects.html", "about.html"]);
+  if (!heroPages.has(out)) {
+    return html;
+  }
+
+  let next = html.replace(
+    "</style>",
+    `\n  .rayfancy-hero-copy{max-width:820px!important;}\n  .rayfancy-hero-copy h1{font-size:clamp(58px,5.2vw,88px)!important;line-height:1.05!important;letter-spacing:0!important;margin-bottom:28px!important;}\n  .rayfancy-hero-copy p{font-size:clamp(18px,1.35vw,22px)!important;line-height:1.5!important;max-width:760px!important;}\n  .rayfancy-about-hero-copy{grid-column:span 10 / span 10!important;max-width:980px!important;}\n  .rayfancy-about-hero-copy h1{font-size:clamp(58px,5vw,90px)!important;line-height:1.04!important;}\n  @media (max-width:768px){.rayfancy-hero-copy{max-width:100%!important}.rayfancy-hero-copy h1{font-size:42px!important;line-height:50px!important;margin-bottom:22px!important}.rayfancy-hero-copy p{font-size:17px!important;line-height:1.55!important}.rayfancy-about-hero-copy{grid-column:1 / -1!important}.rayfancy-about-hero-copy h1{font-size:40px!important;line-height:48px!important}}\n</style>`
+  );
+
+  if (out === "index.html") {
+    next = next.replace(
+      `<div class="max-w-2xl">\n<span class="inline-block font-label-caps text-label-caps text-heritage-gold mb-6 tracking-[0.2em]">B2B EXCELLENCE</span>`,
+      `<div class="max-w-2xl rayfancy-hero-copy rayfancy-home-hero-copy">\n<span class="inline-block font-label-caps text-label-caps text-heritage-gold mb-6 tracking-[0.2em]">B2B EXCELLENCE</span>`
+    );
+  }
+  if (out === "quality.html") {
+    next = next.replace(
+      `<div class="max-w-2xl text-white">\n<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block rayfancy-quality-eyebrow">EXCELLENCE IN ENGINEERING</span>`,
+      `<div class="max-w-2xl text-white rayfancy-hero-copy rayfancy-quality-hero-copy">\n<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block rayfancy-quality-eyebrow">EXCELLENCE IN ENGINEERING</span>`
+    );
+  }
+  if (out === "projects.html") {
+    next = next.replace(
+      `<div class="max-w-2xl">\n<span class="font-label-caps text-label-caps tracking-[0.3em] uppercase text-heritage-gold mb-6 block rayfancy-projects-eyebrow">Case Studies</span>`,
+      `<div class="max-w-2xl rayfancy-hero-copy rayfancy-projects-hero-copy">\n<span class="font-label-caps text-label-caps tracking-[0.3em] uppercase text-heritage-gold mb-6 block rayfancy-projects-eyebrow">Case Studies</span>`
+    );
+  }
+  if (out === "about.html") {
+    next = next.replace(
+      `<div class="md:col-span-8">\n<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block rayfancy-about-hero-kicker">FACTORY DIRECT</span>`,
+      `<div class="md:col-span-8 rayfancy-hero-copy rayfancy-about-hero-copy">\n<span class="font-label-caps text-label-caps text-heritage-gold mb-4 block rayfancy-about-hero-kicker">FACTORY DIRECT</span>`
+    );
+  }
+  return next;
+}
+
 function addQualityPageStyles(html) {
   return html.replace("</style>", `\n  .rayfancy-quality-eyebrow{font-size:14px!important;letter-spacing:.24em!important;}\n  .rayfancy-quality-card{background:#172838;border:1px solid rgba(210,176,109,.22);box-shadow:0 24px 60px rgba(0,0,0,.22);}\n  .rayfancy-quality-card-media{height:210px;overflow:hidden;background:#0e1c29;}\n  .rayfancy-quality-card-img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.03);}\n  .rayfancy-quality-card-content{position:relative;min-height:250px;padding:30px 34px 34px;background:linear-gradient(180deg,#1b3143,#132536);}\n  .rayfancy-quality-card .material-symbols-outlined{position:absolute;top:28px;right:30px;font-size:42px!important;opacity:.16!important;color:#d2b06d!important;}\n  .rayfancy-quality-docs{position:relative;overflow:hidden;background:#11150f!important;color:#fff;}\n  .rayfancy-quality-docs::before{content:\"\";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,21,15,.90),rgba(17,21,15,.66),rgba(17,21,15,.78)),url('/assets/products/premium-switch-closeup-202606072357.jpeg') center/cover no-repeat;}\n  .rayfancy-quality-docs>div{position:relative;z-index:1;}\n  .rayfancy-quality-docs h2,.rayfancy-quality-docs h4{color:#fff!important;}\n  .rayfancy-quality-docs p{color:rgba(255,255,255,.72)!important;}\n  .rayfancy-doc-icon{width:112px!important;height:112px!important;border:0!important;border-radius:0!important;background:rgba(255,255,255,.10)!important;backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);}\n  .rayfancy-doc-icon span{color:#d2b06d!important;}\n  .rayfancy-quality-cta-card{background-image:linear-gradient(90deg,rgba(4,18,31,.88),rgba(4,18,31,.68),rgba(4,18,31,.22)),url('/assets/products/premium-architectural-202606080002.jpeg')!important;background-size:cover!important;background-position:center!important;}\n  .rayfancy-footer-social-plain{font-size:42px!important;opacity:.52!important;color:#d2b06d!important;filter:drop-shadow(0 12px 22px rgba(0,0,0,.24));}\n  .rayfancy-footer-social-plain:hover{opacity:.86!important;}\n  .rayfancy-quality-footer-heading{font-size:22px!important;letter-spacing:.24em!important;color:#d2b06d!important;}\n  .rayfancy-quality-footer-link{font-size:16px!important;line-height:1.45!important;color:rgba(255,255,255,.54)!important;}\n  .rayfancy-quality-footer-link:hover{color:#fff!important;}\n  .rayfancy-quality-flow{row-gap:28px!important;}\n  .rayfancy-quality-flow h4{font-size:12px!important;letter-spacing:.18em!important;}\n  .rayfancy-quality-flow p{font-size:15px!important;line-height:1.55!important;}\n  .rayfancy-quality-flow-dot{box-shadow:0 0 0 8px #f9f9f8!important;}\n  .rayfancy-quality-metric{font-size:52px!important;letter-spacing:.02em!important;color:#d2b06d!important;}\n  .rayfancy-quality-metric-title{font-size:12px!important;letter-spacing:.18em!important;color:#fff!important;}\n  .rayfancy-quality-metric-copy{font-size:16px!important;line-height:1.6!important;color:rgba(255,255,255,.68)!important;opacity:1!important;}\n  @media (max-width:768px){.rayfancy-quality-card-media{height:190px}.rayfancy-quality-card-content{min-height:auto;padding:26px}.rayfancy-quality-metric{font-size:42px!important}.rayfancy-quality-footer-heading{font-size:18px!important}.rayfancy-quality-footer-link{font-size:15px!important;}}\n</style>`);
 }
@@ -1216,6 +1254,7 @@ async function buildPage(page) {
   if (page.out === "resources.html") {
     html = tuneResourcesPage(html);
   }
+  html = tuneHeroCopyLayout(html, page.out);
   return html;
 }
 
