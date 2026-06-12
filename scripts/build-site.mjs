@@ -1133,7 +1133,7 @@ function tuneContactPage(html) {
                     if (window.turnstile && turnstileWidgetId !== null) {
                         window.turnstile.reset(turnstileWidgetId);
                     }
-                    setInquiryStatus('Thank you. Your inquiry has been sent successfully. We will reply by email or WhatsApp soon.', 'success');
+                    setInquiryStatus('Thank you. We have received your inquiry and will reply by email or WhatsApp soon.', 'success');
                 } catch (error) {
                     setInquiryStatus(error.message || 'Submission failed. Please try again or email rayfancycn@gmail.com.', 'error');
                     if (window.turnstile && turnstileWidgetId !== null) {

@@ -99,7 +99,7 @@ async function saveInquiry(inquiry, env) {
 
 async function sendInquiryEmail(inquiry, env) {
   if (!env.RESEND_API_KEY) {
-    throw new Error("RESEND_API_KEY is not configured.");
+    return { sent: false, reason: "RESEND_API_KEY is not configured." };
   }
 
   const to = env.INQUIRY_TO_EMAIL || "rayfancycn@gmail.com";
@@ -158,6 +158,8 @@ async function sendInquiryEmail(inquiry, env) {
     const detail = await response.text();
     throw new Error(`Email service failed: ${detail}`);
   }
+
+  return { sent: true };
 }
 
 export async function onRequestGet({ env }) {
@@ -212,13 +214,23 @@ export async function onRequestPost({ request, env }) {
 
   try {
     await saveInquiry(inquiry, env);
-    await sendInquiryEmail(inquiry, env);
   } catch (error) {
     console.error(error);
     return json({ error: "We could not submit your inquiry right now. Please email rayfancycn@gmail.com directly." }, 502);
   }
 
-  return json({ ok: true, id: inquiry.id });
+  let emailSent = false;
+  try {
+    const emailResult = await sendInquiryEmail(inquiry, env);
+    emailSent = Boolean(emailResult.sent);
+    if (!emailSent) {
+      console.warn(emailResult.reason);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+
+  return json({ ok: true, id: inquiry.id, emailSent });
 }
 
 export async function onRequestOptions() {
