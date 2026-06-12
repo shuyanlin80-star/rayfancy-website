@@ -1057,29 +1057,101 @@ function tuneProjectsPage(html) {
 }
 
 function tuneContactPage(html) {
-  const mailtoScript = `<script>
+  const inquiryScript = `<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script>
         const form = document.querySelector('#trade-inquiry');
+        const statusBox = document.querySelector('[data-inquiry-status]');
+        const turnstileBox = document.querySelector('[data-turnstile-widget]');
+        let turnstileWidgetId = null;
+
+        function setInquiryStatus(message, type) {
+            if (!statusBox) return;
+            statusBox.textContent = message;
+            statusBox.setAttribute('data-state', type || 'info');
+        }
+
+        function renderTurnstile(siteKey) {
+            if (!turnstileBox || !window.turnstile || !siteKey) return;
+            turnstileWidgetId = window.turnstile.render(turnstileBox, {
+                sitekey: siteKey,
+                callback: function () {
+                    setInquiryStatus('', 'idle');
+                }
+            });
+        }
+
+        async function loadInquiryConfig() {
+            try {
+                const response = await fetch('/api/inquiry', { headers: { Accept: 'application/json' } });
+                if (!response.ok) return;
+                const config = await response.json();
+                if (window.turnstile) {
+                    renderTurnstile(config.turnstileSiteKey);
+                } else {
+                    window.addEventListener('load', function () {
+                        renderTurnstile(config.turnstileSiteKey);
+                    });
+                }
+            } catch (error) {
+                setInquiryStatus('Security check is temporarily unavailable. Please try again later or email rayfancycn@gmail.com.', 'error');
+            }
+        }
+
         if (form) {
-            form.addEventListener('submit', (e) => {
+            loadInquiryConfig();
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const data = new FormData(form);
-                const subject = encodeURIComponent('RayFancy trade inquiry');
-                const body = encodeURIComponent([
-                    'Full name: ' + (data.get('full_name') || ''),
-                    'Company: ' + (data.get('company') || ''),
-                    'Email: ' + (data.get('email') || ''),
-                    'Inquiry type: ' + (data.get('inquiry_type') || ''),
-                    '',
-                    'Message:',
-                    data.get('message') || ''
-                ].join('\\n'));
-                window.location.href = 'mailto:${contact.email}?subject=' + subject + '&body=' + body;
+                const button = form.querySelector('button[type="submit"]');
+                const originalText = button ? button.innerHTML : '';
+
+                if (!form.reportValidity()) return;
+                if (!form.querySelector('[name="cf-turnstile-response"]')?.value) {
+                    setInquiryStatus('Please complete the security check before submitting.', 'error');
+                    return;
+                }
+
+                if (button) {
+                    button.disabled = true;
+                    button.innerHTML = 'SENDING...';
+                    button.classList.replace('bg-obsidian-black', 'bg-heritage-gold');
+                }
+                setInquiryStatus('Sending your inquiry...', 'info');
+
+                try {
+                    const data = new FormData(form);
+                    data.set('source_page', window.location.pathname || '/contact.html');
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { Accept: 'application/json' },
+                        body: data
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) {
+                        throw new Error(result.error || 'Submission failed. Please try again.');
+                    }
+                    form.reset();
+                    if (window.turnstile && turnstileWidgetId !== null) {
+                        window.turnstile.reset(turnstileWidgetId);
+                    }
+                    setInquiryStatus('Thank you. Your inquiry has been sent successfully. We will reply by email or WhatsApp soon.', 'success');
+                } catch (error) {
+                    setInquiryStatus(error.message || 'Submission failed. Please try again or email rayfancycn@gmail.com.', 'error');
+                    if (window.turnstile && turnstileWidgetId !== null) {
+                        window.turnstile.reset(turnstileWidgetId);
+                    }
+                } finally {
+                    if (button) {
+                        button.disabled = false;
+                        button.innerHTML = originalText;
+                        button.classList.replace('bg-heritage-gold', 'bg-obsidian-black');
+                    }
+                }
             });
         }
     </script>`;
 
   return html
-    .replace("</style>", `\n  .rayfancy-contact-hero-img{object-position:center 54%!important;filter:saturate(.92) contrast(1.03) brightness(.72)!important;}\n  .rayfancy-contact-kicker{font-size:13px!important;letter-spacing:.18em!important;}\n  .rayfancy-contact-card-img{object-position:center center!important;filter:saturate(.9) contrast(1.04) brightness(.9)!important;}\n  .rayfancy-contact-factory-img{object-position:center center!important;filter:saturate(.85) contrast(1.02) brightness(1.04)!important;}\n  .rayfancy-contact-phone-icon{font-size:23px!important;margin-top:2px!important;color:#b8975b!important;flex:0 0 auto;}\n  .rayfancy-contact-badge{background:#b8975b!important;min-width:260px;}\n  .rayfancy-contact-badge-label{font-size:12px!important;letter-spacing:.18em!important;color:#fff!important;opacity:.82;}\n  .rayfancy-contact-badge-title{font-size:24px!important;line-height:1.15!important;color:#fff!important;}\n  .rayfancy-contact-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif!important;font-size:34px!important;line-height:1!important;font-weight:400!important;letter-spacing:.03em!important;color:#d2b06d!important;}\n  .rayfancy-contact-footer-heading{font-size:14px!important;letter-spacing:.18em!important;color:#d2b06d!important;}\n  .rayfancy-contact-footer-link{font-size:14px!important;line-height:1.4!important;}\n  .rayfancy-contact-footer-icon{font-size:34px!important;color:#d2b06d!important;border:0!important;box-shadow:none!important;}\n  .rayfancy-contact-footer-icon-wrap{border:0!important;background:transparent!important;color:#d2b06d!important;}\n  .rayfancy-contact-copyright{font-size:10px!important;font-weight:400!important;letter-spacing:.08em!important;opacity:.42!important;}\n  @media (max-width:768px){.rayfancy-contact-footer-brand{font-size:30px!important}.rayfancy-contact-badge{min-width:220px}.rayfancy-contact-badge-title{font-size:20px!important}}\n</style>`)
+    .replace("</style>", `\n  .rayfancy-contact-hero-img{object-position:center 54%!important;filter:saturate(.92) contrast(1.03) brightness(.72)!important;}\n  .rayfancy-contact-kicker{font-size:13px!important;letter-spacing:.18em!important;}\n  .rayfancy-contact-card-img{object-position:center center!important;filter:saturate(.9) contrast(1.04) brightness(.9)!important;}\n  .rayfancy-contact-factory-img{object-position:center center!important;filter:saturate(.85) contrast(1.02) brightness(1.04)!important;}\n  .rayfancy-contact-phone-icon{font-size:23px!important;margin-top:2px!important;color:#b8975b!important;flex:0 0 auto;}\n  .rayfancy-contact-badge{background:#b8975b!important;min-width:260px;}\n  .rayfancy-contact-badge-label{font-size:12px!important;letter-spacing:.18em!important;color:#fff!important;opacity:.82;}\n  .rayfancy-contact-badge-title{font-size:24px!important;line-height:1.15!important;color:#fff!important;}\n  .rayfancy-contact-turnstile{min-height:65px;display:flex;align-items:center;}\n  .rayfancy-inquiry-status{min-height:26px;font-size:14px;line-height:1.5;color:#536271;}\n  .rayfancy-inquiry-status[data-state="success"]{color:#1f7a45;}\n  .rayfancy-inquiry-status[data-state="error"]{color:#b42318;}\n  .rayfancy-inquiry-status[data-state="info"]{color:#536271;}\n  #trade-inquiry button[disabled]{cursor:not-allowed;opacity:.72;}\n  .rayfancy-contact-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif!important;font-size:34px!important;line-height:1!important;font-weight:400!important;letter-spacing:.03em!important;color:#d2b06d!important;}\n  .rayfancy-contact-footer-heading{font-size:14px!important;letter-spacing:.18em!important;color:#d2b06d!important;}\n  .rayfancy-contact-footer-link{font-size:14px!important;line-height:1.4!important;}\n  .rayfancy-contact-footer-icon{font-size:34px!important;color:#d2b06d!important;border:0!important;box-shadow:none!important;}\n  .rayfancy-contact-footer-icon-wrap{border:0!important;background:transparent!important;color:#d2b06d!important;}\n  .rayfancy-contact-copyright{font-size:10px!important;font-weight:400!important;letter-spacing:.08em!important;opacity:.42!important;}\n  @media (max-width:768px){.rayfancy-contact-footer-brand{font-size:30px!important}.rayfancy-contact-badge{min-width:220px}.rayfancy-contact-badge-title{font-size:20px!important}}\n</style>`)
     .replace(
       /<img alt="Architectural Hardware Detail" class="w-full h-full object-cover"([^>]+)src="\/assets\/products\/a6-switch-socket-combo\.jpg">/,
       `<img alt="Premium architectural RayFancy product scene" class="w-full h-full object-cover rayfancy-contact-hero-img"$1src="/assets/products/contact-hero-premium-202606072358.jpeg">`
@@ -1126,7 +1198,7 @@ function tuneContactPage(html) {
     )
     .replace(
       /<form class="space-y-10">/,
-      `<form id="trade-inquiry" class="space-y-10" action="mailto:${contact.email}" method="post" enctype="text/plain">`
+      `<form id="trade-inquiry" class="space-y-10" action="/api/inquiry" method="post" novalidate>`
     )
     .replace(
       /<input class="form-underline bg-transparent py-2 font-body-md text-body-md" placeholder="Johnathan Doe" type="text">/,
@@ -1148,7 +1220,11 @@ function tuneContactPage(html) {
       /<textarea class="form-underline bg-transparent py-2 font-body-md text-body-md resize-none" placeholder="How may our specialists assist you today\?" rows="4"><\/textarea>/,
       `<textarea class="form-underline bg-transparent py-2 font-body-md text-body-md resize-none" name="message" placeholder="How may our specialists assist you today?" required rows="4"></textarea>`
     )
-    .replace(/<script>\s*\/\/ Simple form interaction[\s\S]*?<\/script>/, mailtoScript);
+    .replace(
+      /<div class="pt-4">\s*<button/,
+      `<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">\n<div class="flex flex-col">\n<label class="font-label-caps text-label-caps text-slate-gray mb-2">COUNTRY / REGION</label>\n<input class="form-underline bg-transparent py-2 font-body-md text-body-md" name="country" placeholder="United States" type="text">\n</div>\n<div class="flex flex-col">\n<label class="font-label-caps text-label-caps text-slate-gray mb-2">ESTIMATED QUANTITY</label>\n<input class="form-underline bg-transparent py-2 font-body-md text-body-md" name="quantity" placeholder="500 pcs / trial order" type="text">\n</div>\n</div>\n<div class="flex flex-col">\n<label class="font-label-caps text-label-caps text-slate-gray mb-2">PRODUCT INTEREST</label>\n<input class="form-underline bg-transparent py-2 font-body-md text-body-md" name="product_interest" placeholder="Wall switches, sockets, plugs, OEM packaging..." type="text">\n</div>\n<input type="hidden" name="source_page" value="/contact.html">\n<div class="rayfancy-contact-turnstile" data-turnstile-widget></div>\n<p class="rayfancy-inquiry-status" data-inquiry-status aria-live="polite"></p>\n<div class="pt-4">\n<button`
+    )
+    .replace(/<script>\s*\/\/ Simple form interaction[\s\S]*?<\/script>/, inquiryScript);
 }
 
 function tuneProductsPage(html) {
