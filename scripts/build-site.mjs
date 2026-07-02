@@ -751,6 +751,7 @@ function buildPrivacyPage() {
   window.tailwind.config = { theme: { extend: {
     colors: { primary: "#1c1d18", surface: "#f9f9f9", "heritage-gold": "#B5A27A", "slate-gray": "#536271", "obsidian-black": "#000000", "on-primary": "#ffffff", "on-surface": "#1a1c1c" },
     spacing: { "container-max": "1280px", "margin-desktop": "64px", "margin-mobile": "20px" },
+    maxWidth: { "container-max": "1280px" },
     fontFamily: { "label-caps": ["Montserrat"], "body-md": ["Open Sans"] },
     fontSize: { "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] }
   } } };
@@ -759,10 +760,13 @@ function buildPrivacyPage() {
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:'Azonix';src:url('/assets/fonts/Azonix.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}
   body{font-family:"Open Sans",Arial,sans-serif;background:#f9f9f8;color:#1a1c1c;margin:0;}
   .rayfancy-policy h1,.rayfancy-policy h2,.rayfancy-policy h3,.rayfancy-policy nav a{font-family:Montserrat,Arial,sans-serif;}
   .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
   #main-nav{background:#fff!important;}
+  #main-nav nav{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;padding-left:64px!important;padding-right:64px!important;}
+  .rayfancy-header-wordmark{font-family:Azonix,Montserrat,Arial,sans-serif!important;font-size:26px!important;line-height:1!important;font-weight:400!important;letter-spacing:.03em!important;}
   .rayfancy-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:16px!important;line-height:1!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}
   .rayfancy-mobile-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:15px!important;line-height:1.2!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}
   .rayfancy-policy-hero{position:relative;min-height:435px;display:flex;align-items:center;overflow:hidden;background:#111722;color:#fff;}
@@ -789,7 +793,7 @@ function buildPrivacyPage() {
   .rayfancy-site-footer-bottom{max-width:1280px;margin:88px auto 0;padding-top:34px;border-top:1px solid rgba(255,255,255,.12);}
   .rayfancy-site-footer-bottom p{font-family:Montserrat,Arial,sans-serif;font-size:11px;line-height:1.4;letter-spacing:.12em;color:rgba(255,255,255,.42);margin:0;}
   @media (max-width:1120px){.rayfancy-site-footer{padding:86px 32px 56px}.rayfancy-site-footer-grid{grid-template-columns:1fr 1fr;gap:48px}.rayfancy-site-footer-brand-col{grid-column:1 / -1;}}
-  @media (max-width:768px){.rayfancy-policy-hero{min-height:430px}.rayfancy-policy-hero::before{background:linear-gradient(90deg,rgba(10,15,23,.94),rgba(10,15,23,.72)),url('/assets/company/privacy-hero-secure-inquiry-20260702.png') 64% center/cover no-repeat}.rayfancy-nav-link{font-size:14px!important}.rayfancy-site-footer{padding:66px 24px 48px}.rayfancy-site-footer-grid{grid-template-columns:1fr;gap:38px}.rayfancy-site-footer-bottom{margin-top:52px}}
+  @media (max-width:768px){#main-nav nav{padding-left:20px!important;padding-right:20px!important}.rayfancy-header-wordmark{font-size:22px!important}.rayfancy-policy-hero{min-height:430px}.rayfancy-policy-hero::before{background:linear-gradient(90deg,rgba(10,15,23,.94),rgba(10,15,23,.72)),url('/assets/company/privacy-hero-secure-inquiry-20260702.png') 64% center/cover no-repeat}.rayfancy-nav-link{font-size:14px!important}.rayfancy-site-footer{padding:66px 24px 48px}.rayfancy-site-footer-grid{grid-template-columns:1fr;gap:38px}.rayfancy-site-footer-bottom{margin-top:52px}}
 </style>
 </head>
 <body class="rayfancy-policy bg-surface text-on-surface">
@@ -806,9 +810,9 @@ ${nav}
 <section class="rayfancy-policy-body px-5 md:px-16 py-14 md:py-20">
 <div class="max-w-4xl mx-auto space-y-12">
 <div class="rayfancy-policy-section">
-<h2>1. Overview</h2>
-<p>RayFancy respects the privacy of website visitors, distributors, contractors, OEM buyers, and project procurement teams. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.</p>
-<p>This website is intended for business inquiries about wall switches, sockets, plugs, power strips, lighting accessories, product samples, OEM packaging, and export communication.</p>
+<h2>1. Overview &amp; Applicability</h2>
+<p>RayFancy respects the privacy of website visitors, distributors, contractors, OEM buyers, and project procurement teams. This Privacy Policy explains what information we collect through this website, how we use it, how we protect it, and what rights may be available to you.</p>
+<p>This website is intended for business inquiries about wall switches, sockets, plugs, power strips, lighting accessories, product samples, OEM packaging, and export communication. We are committed to protecting personal information in accordance with applicable privacy laws, including the EU General Data Protection Regulation (GDPR), the California Consumer Privacy Act as amended by the CPRA where applicable, and other privacy laws that may apply in your country or region.</p>
 </div>
 <div class="rayfancy-policy-section">
 <h2>2. Information We Collect</h2>
@@ -828,37 +832,56 @@ ${nav}
 </ul>
 </div>
 <div class="rayfancy-policy-section">
-<h2>4. Cookies and Similar Technologies</h2>
+<h2>4. Cookies &amp; Tracking Technologies</h2>
 <p>We may use cookies or similar technologies for basic website operation, form security, spam prevention, performance review, and analytics. You can usually control cookies through your browser settings, although some website functions may not work properly if cookies are disabled.</p>
+<p>If we introduce third-party analytics, advertising pixels, or similar non-essential tracking tools, we will provide cookie notice or consent controls where required by applicable law, so visitors can accept or reject non-essential tracking.</p>
 </div>
 <div class="rayfancy-policy-section">
 <h2>5. How We Share Information</h2>
 <p>We do not sell personal information. We may share information only when needed to operate the website, respond to your request, arrange business communication, support sample or order discussion, comply with legal obligations, or protect our rights and website security.</p>
 <p>Service providers who help us with hosting, email, form security, analytics, or business communication are expected to handle information only for the services they provide.</p>
+<p>Where a privacy law gives you a right to opt out of the sale or sharing of personal information, you may contact us using the details below. RayFancy does not currently sell personal information.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>6. International Business Communication</h2>
-<p>RayFancy works with customers and partners in different countries and regions. If you contact us from outside China, your information may be transferred and processed across borders for inquiry response, product matching, sample discussion, and export communication.</p>
+<h2>6. International Data Transfers &amp; Safeguards</h2>
+<p>RayFancy works with customers and partners in different countries and regions. If you contact us from outside China, your information may be transferred to, stored in, or processed in China or other countries for inquiry response, product matching, sample discussion, and export communication.</p>
+<p>When personal information is transferred across borders, we use reasonable safeguards designed to protect it, such as access controls, secure transmission where available, limited internal access, service provider obligations, and legally recognized transfer mechanisms where applicable. For transfers subject to GDPR requirements, this may include reliance on Standard Contractual Clauses or other lawful transfer mechanisms.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>7. Data Retention and Security</h2>
-<p>We keep inquiry and business communication information only for as long as reasonably needed for the purposes described in this policy, including follow-up communication, order discussion, recordkeeping, and legal or operational needs. We use reasonable technical and organizational measures to protect information, but no website or online transmission can be guaranteed to be completely secure.</p>
+<h2>7. Data Security &amp; Retention Period</h2>
+<p>We keep inquiry and business communication information only for as long as reasonably needed for the purposes described in this policy, including follow-up communication, order discussion, recordkeeping, and legal or operational needs.</p>
+<p>We use reasonable technical and organizational measures to protect information from unauthorized access, loss, misuse, alteration, or disclosure. However, no website, email, or online transmission can be guaranteed to be completely secure.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>8. Your Choices</h2>
-<p>You may contact us to request access, correction, update, or deletion of information you have provided, subject to applicable legal and business record requirements. You may also ask us to stop non-essential business follow-up messages.</p>
+<h2>8. Your Rights Under GDPR and Applicable Laws</h2>
+<p>Depending on your location and the privacy laws that apply, you may have the following rights regarding your personal information:</p>
+<ul>
+<li><strong>Access / Right to Know:</strong> request confirmation of whether we process your information and receive details about the information we hold.</li>
+<li><strong>Rectification:</strong> ask us to correct inaccurate or incomplete information.</li>
+<li><strong>Erasure / Right to be Forgotten:</strong> ask us to delete information when it is no longer needed or when deletion is required by applicable law.</li>
+<li><strong>Data Portability:</strong> request a copy of information you provided in a commonly used, machine-readable format where this right applies.</li>
+<li><strong>Restriction and Objection:</strong> ask us to restrict certain processing or object to processing based on your situation.</li>
+<li><strong>Marketing Opt-out:</strong> ask us to stop non-essential marketing or business follow-up messages at any time.</li>
+<li><strong>Opt-out of Sale or Sharing:</strong> where applicable, opt out of the sale or sharing of personal information. RayFancy does not currently sell personal information.</li>
+</ul>
+<p>We may need to verify your identity or business contact authority before responding to certain requests. These rights may be subject to legal limits, including recordkeeping, compliance, security, or dispute-resolution requirements.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>9. Third-Party Links</h2>
+<h2>9. Children's Privacy</h2>
+<p>This website is designed for business users and is not directed to children under 16. We do not knowingly collect personal information from children. If we learn that a child has provided personal information through this website, we will take reasonable steps to delete it.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>10. Third-Party Links</h2>
 <p>Our website may include links to third-party websites or communication tools. Their privacy practices are governed by their own policies, and we are not responsible for their content or practices.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>10. Updates to This Policy</h2>
+<h2>11. Changes to This Policy</h2>
 <p>We may update this Privacy Policy from time to time. The latest version will be posted on this page with the updated date shown above.</p>
 </div>
 <div class="rayfancy-policy-section">
-<h2>11. Contact Us</h2>
-<p>For privacy questions or data requests, contact us at <a class="text-[#8a6d2f] underline" href="mailto:${contact.email}">${contact.email}</a> or through WhatsApp: <a class="text-[#8a6d2f] underline" href="${contact.whatsapp1}">${contact.phone1}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp2}">${contact.phone2}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp3}">${contact.phone3}</a>.</p>
+<h2>12. Contact Us &amp; Data Request Response</h2>
+<p>For privacy questions, data requests, or marketing opt-out requests, contact our privacy contact at <a class="text-[#8a6d2f] underline" href="mailto:privacy@rayfancy-pro.com">privacy@rayfancy-pro.com</a>. You may also contact us at <a class="text-[#8a6d2f] underline" href="mailto:${contact.email}">${contact.email}</a> or through WhatsApp: <a class="text-[#8a6d2f] underline" href="${contact.whatsapp1}">${contact.phone1}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp2}">${contact.phone2}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp3}">${contact.phone3}</a>.</p>
+<p>We aim to respond to verified privacy requests within 30 days, or within the timeframe required by applicable law. If more time is needed because of request complexity or legal requirements, we will inform you when required.</p>
 </div>
 </div>
 </section>
