@@ -14,9 +14,11 @@ const checkOnly = process.argv.includes("--check");
 const contact = {
   email: "rayfancycn@gmail.com",
   phone1: "+86 18357812915",
-  phone2: "+86 15988720342",
+  phone2: "+86 17867941987",
+  phone3: "+86 18815021960",
   whatsapp1: "https://wa.me/8618357812915",
-  whatsapp2: "https://wa.me/8615988720342",
+  whatsapp2: "https://wa.me/8617867941987",
+  whatsapp3: "https://wa.me/8618815021960",
   address: "Binhai Industrial Zone, Wenzhou, Zhejiang, China",
   domain: "www.rayfancy-pro.com",
 };
@@ -180,18 +182,18 @@ function unifiedNavigation(active) {
       const activeClass = key === active
         ? "text-heritage-gold border-b-2 border-heritage-gold pb-1"
         : "text-slate-gray hover:text-heritage-gold";
-      return `<a class="font-label-caps text-label-caps ${activeClass} transition-colors duration-300 whitespace-nowrap" href="${href}">${label}</a>`;
+      return `<a class="rayfancy-nav-link ${activeClass} transition-colors duration-300 whitespace-nowrap" href="${href}">${label}</a>`;
     })
     .join("\n");
   const mobileLinks = links
     .map(([key, href, label]) => {
       const activeClass = key === active ? "text-heritage-gold" : "text-obsidian-black";
-      return `<a class="block font-label-caps text-label-caps ${activeClass} py-3 border-b border-slate-gray/10" href="${href}">${label}</a>`;
+      return `<a class="block rayfancy-mobile-nav-link ${activeClass} py-3 border-b border-slate-gray/10" href="${href}">${label}</a>`;
     })
     .join("\n");
 
   return `<!-- Unified RayFancy Navigation -->
-<header class="w-full top-0 sticky bg-surface z-50 border-b border-slate-gray border-opacity-10 h-16 transition-all duration-300" id="main-nav">
+<header class="w-full top-0 sticky bg-white z-50 border-b border-slate-gray border-opacity-10 h-16 transition-all duration-300" id="main-nav">
 <nav class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-full gap-4">
 <a class="flex items-end gap-3 shrink-0" href="/" aria-label="RayFancy home">
 <span class="flex h-10 w-10 md:h-11 md:w-11 items-center justify-center overflow-hidden">
@@ -213,6 +215,52 @@ ${mobileLinks}
 </details>
 </nav>
 </header>`;
+}
+
+function footerIconLink(icon, href, label) {
+  return `<a class="rayfancy-footer-icon-link" href="${href}" aria-label="${label}" title="${label}">
+<span class="material-symbols-outlined rayfancy-footer-icon">${icon}</span>
+</a>`;
+}
+
+function commonFooter() {
+  return `<!-- Footer -->
+<footer class="rayfancy-site-footer bg-primary">
+<div class="rayfancy-site-footer-grid">
+<div class="rayfancy-site-footer-brand-col">
+<div class="rayfancy-site-footer-brand">RAYFANCY</div>
+<p class="rayfancy-site-footer-copy">Building practical wall switches and electrical accessories for distributors, contractors, OEM buyers, and project procurement teams.</p>
+<div class="rayfancy-site-footer-icons">
+${footerIconLink("language", "/", "Visit RayFancy website")}
+${footerIconLink("mail", "/contact.html#trade-inquiry", "Open inquiry form")}
+${footerIconLink("phone", contact.whatsapp2, "Contact RayFancy on WhatsApp")}
+</div>
+</div>
+<div>
+<h4 class="rayfancy-site-footer-heading">RESOURCES</h4>
+<a class="rayfancy-site-footer-link" href="/contact.html">Terms of Service</a>
+<a class="rayfancy-site-footer-link" href="/privacy.html">Privacy Policy</a>
+<a class="rayfancy-site-footer-link" href="/contact.html">Trade Account</a>
+</div>
+<div>
+<h4 class="rayfancy-site-footer-heading">SUPPORT</h4>
+<a class="rayfancy-site-footer-link" href="/contact.html">Export Communication</a>
+<a class="rayfancy-site-footer-link" href="/contact.html">Sample Confirmation</a>
+<a class="rayfancy-site-footer-link" href="/resources.html">Product References</a>
+</div>
+</div>
+<div class="rayfancy-site-footer-bottom">
+<p>© 2026 RAYFANCY. WALL SWITCHES AND ELECTRICAL ACCESSORIES.</p>
+</div>
+</footer>`;
+}
+
+function replaceSiteFooter(html) {
+  const footer = commonFooter();
+  if (/<!-- Footer(?: Shell)? -->\s*<footer[\s\S]*?<\/footer>/.test(html)) {
+    return html.replace(/<!-- Footer(?: Shell)? -->\s*<footer[\s\S]*?<\/footer>/, footer);
+  }
+  return html.replace(/<footer[\s\S]*?<\/footer>(?![\s\S]*<footer)/, footer);
 }
 
 function replaceNavigation(html, active) {
@@ -384,7 +432,6 @@ function replaceHomepageTrustCopy(html) {
     .replace(/Installation Guides/g, "Product References")
     .replace(/Shipping/g, "Export Communication")
     .replace(/Returns/g, "Sample Confirmation")
-    .replace(/Privacy Policy/g, "Contact Sales")
     .replace(/INSTAGRAM/g, "FACEBOOK")
     .replace(/PINTEREST/g, "WHATSAPP")
     .replace(/LINKEDIN/g, "EMAIL");
@@ -581,10 +628,14 @@ function addHomepageEnhancements(html) {
 
 function addRayFancyMetadata(html, title) {
   const description = "RayFancy supplies wall switches, sockets, plugs, power strips, and electrical accessories for global distributors, contractors, and OEM buyers.";
-  return html.replace("</head>", `<meta name="description" content="${description}">\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${description}">\n<style>\n  @font-face{font-family:'Azonix';src:url('/assets/fonts/Azonix.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}\n  .rayfancy-fb-qr{width:120px;height:120px;object-fit:contain;background:#fff;border:1px solid rgba(83,98,113,.18);padding:6px;margin-top:12px;}\n  .rayfancy-mobile-nav summary::-webkit-details-marker{display:none;}\n  .rayfancy-hero-bg{object-position:68% 48%;animation:none;will-change:auto;filter:saturate(1.04) contrast(1.03);}\n  .rayfancy-edge-section{position:relative;overflow:hidden;background:#fff!important;}\n  .rayfancy-edge-section::before{display:none;}\n  .rayfancy-edge-badge{position:relative;border:1px solid rgba(184,151,91,.34);border-left:5px solid #b8975b;background:#101010;padding:30px 36px;min-width:430px;width:calc(430px + max(24px,(100vw - 1280px)/2));margin-right:calc(-1 * max(24px,(100vw - 1280px)/2));box-shadow:0 28px 70px rgba(18,30,42,.18);}\n  .rayfancy-edge-kicker{display:block;font-family:var(--font-headline),'Times New Roman',serif;font-size:44px;line-height:1.02;color:#d2b06d;letter-spacing:0;}\n  .rayfancy-edge-note{display:block;margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,246,240,.76);}\n  .rayfancy-application-image{object-fit:contain!important;object-position:center center!important;background:#f3eee3;}
+  let next = html;
+  if (!/<title>[\s\S]*?<\/title>/.test(next)) {
+    next = next.replace("<head>", `<head>\n<title>${title}</title>`);
+  }
+  return next.replace("</head>", `<meta name="description" content="${description}">\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${description}">\n<style>\n  @font-face{font-family:'Azonix';src:url('/assets/fonts/Azonix.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap;}\n  .rayfancy-fb-qr{width:120px;height:120px;object-fit:contain;background:#fff;border:1px solid rgba(83,98,113,.18);padding:6px;margin-top:12px;}\n  .rayfancy-mobile-nav summary::-webkit-details-marker{display:none;}\n  .rayfancy-hero-bg{object-position:68% 48%;animation:none;will-change:auto;filter:saturate(1.04) contrast(1.03);}\n  .rayfancy-edge-section{position:relative;overflow:hidden;background:#fff!important;}\n  .rayfancy-edge-section::before{display:none;}\n  .rayfancy-edge-badge{position:relative;border:1px solid rgba(184,151,91,.34);border-left:5px solid #b8975b;background:#101010;padding:30px 36px;min-width:430px;width:calc(430px + max(24px,(100vw - 1280px)/2));margin-right:calc(-1 * max(24px,(100vw - 1280px)/2));box-shadow:0 28px 70px rgba(18,30,42,.18);}\n  .rayfancy-edge-kicker{display:block;font-family:var(--font-headline),'Times New Roman',serif;font-size:44px;line-height:1.02;color:#d2b06d;letter-spacing:0;}\n  .rayfancy-edge-note{display:block;margin-top:14px;font-size:12px;line-height:1.5;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,246,240,.76);}\n  .rayfancy-application-image{object-fit:contain!important;object-position:center center!important;background:#f3eee3;}
   .rayfancy-quote-card{width:260px!important;padding:28px 32px!important;background:rgba(35,49,61,.82)!important;border-left:4px solid #b8975b;backdrop-filter:blur(8px);}\n  .rayfancy-quote-card p{font-family:Georgia,'Times New Roman',serif!important;font-size:18px!important;line-height:1.55!important;letter-spacing:.08em;color:#f8f6f0!important;}\n  .rayfancy-kpi-number{font-family:Azonix,serif!important;font-size:46px!important;line-height:.95!important;letter-spacing:.12em;color:#d2b06d!important;text-shadow:0 10px 32px rgba(184,151,91,.24);}\n  .rayfancy-kpi-label{font-size:11px!important;letter-spacing:.3em!important;color:#f4f0e6!important;}\n  .rayfancy-resource-label{font-size:13px!important;letter-spacing:.18em!important;}\n  .rayfancy-submit-button{display:inline-flex!important;align-items:center;justify-content:center;width:100%;min-height:52px;padding:0 28px!important;background:#b8975b!important;color:#fff!important;white-space:nowrap;border:1px solid rgba(16,24,32,.18);box-shadow:0 14px 34px rgba(184,151,91,.28);font-size:14px!important;letter-spacing:.16em!important;}\n  .rayfancy-submit-button:hover{background:#d2b06d!important;color:#fff!important;}\n  .rayfancy-footer-brand{font-family:Azonix,serif!important;font-size:32px!important;line-height:1!important;letter-spacing:.03em;font-weight:400!important;color:#d2b06d!important;}
   .rayfancy-footer-copy{font-style:italic!important;letter-spacing:.02em;}\n  .rayfancy-social-icon{width:56px!important;height:56px!important;display:inline-flex!important;align-items:center;justify-content:center;border-color:transparent!important;color:#d2b06d!important;box-shadow:none!important;}\n  .rayfancy-social-icon .material-symbols-outlined{font-size:34px!important;color:#d2b06d!important;}\n  .rayfancy-footer-heading{font-size:18px!important;letter-spacing:.24em!important;color:#c8b27a!important;}\n  .rayfancy-footer-link{font-size:14px!important;line-height:1.45!important;color:#b4bfca!important;}
-  .rayfancy-header-logo,.rayfancy-header-wordmark{filter:none;}\n  @keyframes rayfancyHeroDrift{from{transform:scale(1.02) translate3d(0,0,0);}to{transform:scale(1.08) translate3d(-18px,10px,0);}}\n  @media (prefers-reduced-motion: reduce){.rayfancy-hero-bg{animation:none;}}\n  @media (max-width: 1120px){.text-label-caps{font-size:10px!important;}.rayfancy-kpi-number{font-size:40px!important;}.rayfancy-edge-kicker{font-size:36px;}.rayfancy-edge-badge{min-width:360px;width:calc(360px + 24px);margin-right:-24px;padding:26px 30px;}}\n  @media (max-width: 768px){.px-margin-desktop{padding-left:20px!important;padding-right:20px!important}.text-display-lg{font-size:42px!important;line-height:50px!important}.text-headline-lg{font-size:34px!important;line-height:42px!important}.rayfancy-hero-bg{object-position:72% 50%;}.rayfancy-application-image{object-fit:contain!important;object-position:center center!important;background:#f3eee3;}
+  #main-nav{background:#fff!important;}\n  .rayfancy-header-logo,.rayfancy-header-wordmark{filter:none;}\n  .rayfancy-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:16px!important;line-height:1!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}\n  .rayfancy-mobile-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:15px!important;line-height:1.2!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}\n  .rayfancy-site-footer{background:#1c1d18;color:#fff;padding:112px 64px 72px;}\n  .rayfancy-site-footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(320px,2fr) 1fr 1fr;gap:64px;}\n  .rayfancy-site-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif;font-size:34px;line-height:1;font-weight:400;letter-spacing:.03em;color:#d2b06d;margin-bottom:28px;}\n  .rayfancy-site-footer-copy{max-width:430px;color:rgba(255,255,255,.70);font-size:16px;line-height:1.62;font-style:italic;margin:0 0 42px;}\n  .rayfancy-site-footer-icons{display:flex;gap:20px;align-items:center;}\n  .rayfancy-footer-icon-link{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;color:#d2b06d;text-decoration:none;border:0;background:transparent;}\n  .rayfancy-footer-icon-link:hover{color:#fff;}\n  .rayfancy-footer-icon{font-size:34px!important;line-height:1!important;}\n  .rayfancy-site-footer-heading{font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1;letter-spacing:.28em;color:#d2b06d;margin:0 0 32px;font-weight:700;}\n  .rayfancy-site-footer-link{display:block;color:rgba(255,255,255,.72);font-size:15px;line-height:1.45;text-decoration:none;margin:0 0 18px;}\n  .rayfancy-site-footer-link:hover{color:#fff;}\n  .rayfancy-site-footer-bottom{max-width:1280px;margin:88px auto 0;padding-top:34px;border-top:1px solid rgba(255,255,255,.12);}\n  .rayfancy-site-footer-bottom p{font-family:Montserrat,Arial,sans-serif;font-size:11px;line-height:1.4;letter-spacing:.12em;color:rgba(255,255,255,.42);margin:0;}\n  @keyframes rayfancyHeroDrift{from{transform:scale(1.02) translate3d(0,0,0);}to{transform:scale(1.08) translate3d(-18px,10px,0);}}\n  @media (prefers-reduced-motion: reduce){.rayfancy-hero-bg{animation:none;}}\n  @media (max-width: 1120px){.text-label-caps{font-size:10px!important;}.rayfancy-nav-link{font-size:14px!important}.rayfancy-kpi-number{font-size:40px!important;}.rayfancy-edge-kicker{font-size:36px;}.rayfancy-edge-badge{min-width:360px;width:calc(360px + 24px);margin-right:-24px;padding:26px 30px;}.rayfancy-site-footer{padding:86px 32px 56px}.rayfancy-site-footer-grid{grid-template-columns:1fr 1fr;gap:48px}.rayfancy-site-footer-brand-col{grid-column:1 / -1;}}\n  @media (max-width: 768px){.px-margin-desktop{padding-left:20px!important;padding-right:20px!important}.text-display-lg{font-size:42px!important;line-height:50px!important}.text-headline-lg{font-size:34px!important;line-height:42px!important}.rayfancy-hero-bg{object-position:72% 50%;}.rayfancy-application-image{object-fit:contain!important;object-position:center center!important;background:#f3eee3;}.rayfancy-site-footer{padding:66px 24px 48px}.rayfancy-site-footer-grid{grid-template-columns:1fr;gap:38px}.rayfancy-site-footer-bottom{margin-top:52px}}
   .rayfancy-quote-card{width:220px!important;padding:22px 24px!important}.rayfancy-kpi-number{font-size:32px!important;}.rayfancy-social-icon{width:48px!important;height:48px!important;}}\n</style>\n</head>`);
 }
 
@@ -683,6 +734,140 @@ function optimizeHeadResourceHints(html) {
   });
 }
 
+function buildPrivacyPage() {
+  const title = "Privacy Policy | RayFancy";
+  const updatedDate = "July 2, 2026";
+  const nav = unifiedNavigation("");
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="RayFancy privacy policy for website visitors, product inquiries, and B2B contact requests.">
+<link rel="canonical" href="https://www.rayfancy-pro.com/privacy">
+<script>
+  window.tailwind = window.tailwind || {};
+  window.tailwind.config = { theme: { extend: {
+    colors: { primary: "#1c1d18", surface: "#f9f9f9", "heritage-gold": "#B5A27A", "slate-gray": "#536271", "obsidian-black": "#000000", "on-primary": "#ffffff", "on-surface": "#1a1c1c" },
+    spacing: { "container-max": "1280px", "margin-desktop": "64px", "margin-mobile": "20px" },
+    fontFamily: { "label-caps": ["Montserrat"], "body-md": ["Open Sans"] },
+    fontSize: { "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] }
+  } } };
+</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+  body{font-family:"Open Sans",Arial,sans-serif;background:#f9f9f8;color:#1a1c1c;margin:0;}
+  .rayfancy-policy h1,.rayfancy-policy h2,.rayfancy-policy h3,.rayfancy-policy nav a{font-family:Montserrat,Arial,sans-serif;}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+  #main-nav{background:#fff!important;}
+  .rayfancy-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:16px!important;line-height:1!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}
+  .rayfancy-mobile-nav-link{font-family:Montserrat,Arial,sans-serif!important;font-size:15px!important;line-height:1.2!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;}
+  .rayfancy-policy-hero{position:relative;min-height:435px;display:flex;align-items:center;overflow:hidden;background:#111722;color:#fff;}
+  .rayfancy-policy-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,23,.94) 0%,rgba(10,15,23,.82) 35%,rgba(10,15,23,.46) 67%,rgba(10,15,23,.30) 100%),url('/assets/company/privacy-hero-secure-inquiry-20260702.png') center/cover no-repeat;}
+  .rayfancy-policy-hero>div{position:relative;z-index:1;}
+  .rayfancy-policy-body{background:#f9f9f8;}
+  .rayfancy-policy-body h2{font-size:28px;line-height:1.2;margin:0 0 18px;color:#1a1c1c;}
+  .rayfancy-policy-body h3{font-size:18px;line-height:1.35;margin:24px 0 10px;color:#1a1c1c;}
+  .rayfancy-policy-body p,.rayfancy-policy-body li{font-size:16px;line-height:1.78;color:#33445c;}
+  .rayfancy-policy-body ul{list-style:disc;padding-left:24px;margin:12px 0 0;}
+  .rayfancy-policy-body li{margin-bottom:8px;}
+  .rayfancy-policy-section{border-top:1px solid rgba(83,98,113,.16);padding-top:34px;}
+  .rayfancy-site-footer{background:#1c1d18;color:#fff;padding:112px 64px 72px;}
+  .rayfancy-site-footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:minmax(320px,2fr) 1fr 1fr;gap:64px;}
+  .rayfancy-site-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif;font-size:34px;line-height:1;font-weight:400;letter-spacing:.03em;color:#d2b06d;margin-bottom:28px;}
+  .rayfancy-site-footer-copy{max-width:430px;color:rgba(255,255,255,.70);font-size:16px;line-height:1.62;font-style:italic;margin:0 0 42px;}
+  .rayfancy-site-footer-icons{display:flex;gap:20px;align-items:center;}
+  .rayfancy-footer-icon-link{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;color:#d2b06d;text-decoration:none;border:0;background:transparent;}
+  .rayfancy-footer-icon-link:hover{color:#fff;}
+  .rayfancy-footer-icon{font-size:34px!important;line-height:1!important;}
+  .rayfancy-site-footer-heading{font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1;letter-spacing:.28em;color:#d2b06d;margin:0 0 32px;font-weight:700;}
+  .rayfancy-site-footer-link{display:block;color:rgba(255,255,255,.72);font-size:15px;line-height:1.45;text-decoration:none;margin:0 0 18px;}
+  .rayfancy-site-footer-link:hover{color:#fff;}
+  .rayfancy-site-footer-bottom{max-width:1280px;margin:88px auto 0;padding-top:34px;border-top:1px solid rgba(255,255,255,.12);}
+  .rayfancy-site-footer-bottom p{font-family:Montserrat,Arial,sans-serif;font-size:11px;line-height:1.4;letter-spacing:.12em;color:rgba(255,255,255,.42);margin:0;}
+  @media (max-width:1120px){.rayfancy-site-footer{padding:86px 32px 56px}.rayfancy-site-footer-grid{grid-template-columns:1fr 1fr;gap:48px}.rayfancy-site-footer-brand-col{grid-column:1 / -1;}}
+  @media (max-width:768px){.rayfancy-policy-hero{min-height:430px}.rayfancy-policy-hero::before{background:linear-gradient(90deg,rgba(10,15,23,.94),rgba(10,15,23,.72)),url('/assets/company/privacy-hero-secure-inquiry-20260702.png') 64% center/cover no-repeat}.rayfancy-nav-link{font-size:14px!important}.rayfancy-site-footer{padding:66px 24px 48px}.rayfancy-site-footer-grid{grid-template-columns:1fr;gap:38px}.rayfancy-site-footer-bottom{margin-top:52px}}
+</style>
+</head>
+<body class="rayfancy-policy bg-surface text-on-surface">
+${nav}
+<main>
+<section class="rayfancy-policy-hero px-5 md:px-16 py-20 md:py-28">
+<div class="max-w-5xl mx-auto">
+<p class="uppercase tracking-[0.24em] text-sm text-[#d2b06d] mb-5">RayFancy Website</p>
+<h1 class="text-4xl md:text-6xl font-semibold leading-tight mb-6">Privacy Policy</h1>
+<p class="text-lg md:text-xl text-white/72 max-w-3xl">This policy explains how RayFancy handles information submitted through our website, contact links, and product inquiry forms.</p>
+<p class="mt-6 text-sm text-white/56">Last updated: ${updatedDate}</p>
+</div>
+</section>
+<section class="rayfancy-policy-body px-5 md:px-16 py-14 md:py-20">
+<div class="max-w-4xl mx-auto space-y-12">
+<div class="rayfancy-policy-section">
+<h2>1. Overview</h2>
+<p>RayFancy respects the privacy of website visitors, distributors, contractors, OEM buyers, and project procurement teams. This Privacy Policy explains what information we collect through this website, how we use it, and the choices available to you.</p>
+<p>This website is intended for business inquiries about wall switches, sockets, plugs, power strips, lighting accessories, product samples, OEM packaging, and export communication.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>2. Information We Collect</h2>
+<h3>Information you submit</h3>
+<p>When you contact us, submit an inquiry, or request product information, we may collect your name, company name, email address, phone or WhatsApp number, country or region, product interest, estimated quantity, project details, and any message or attachment you choose to provide.</p>
+<h3>Technical information</h3>
+<p>Like many company websites, we may collect limited technical information such as browser type, device information, pages visited, referral source, approximate location, and security logs. This information helps us keep the website stable and understand how visitors use it.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>3. How We Use Information</h2>
+<ul>
+<li>To respond to product, sample, catalog, OEM, or project inquiries.</li>
+<li>To communicate by email, phone, WhatsApp, or other business contact methods you provide.</li>
+<li>To recommend suitable products, materials, packaging options, and documentation based on your request.</li>
+<li>To improve our website content, product information, and customer response process.</li>
+<li>To protect the website, prevent spam or abuse, and maintain business records where appropriate.</li>
+</ul>
+</div>
+<div class="rayfancy-policy-section">
+<h2>4. Cookies and Similar Technologies</h2>
+<p>We may use cookies or similar technologies for basic website operation, form security, spam prevention, performance review, and analytics. You can usually control cookies through your browser settings, although some website functions may not work properly if cookies are disabled.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>5. How We Share Information</h2>
+<p>We do not sell personal information. We may share information only when needed to operate the website, respond to your request, arrange business communication, support sample or order discussion, comply with legal obligations, or protect our rights and website security.</p>
+<p>Service providers who help us with hosting, email, form security, analytics, or business communication are expected to handle information only for the services they provide.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>6. International Business Communication</h2>
+<p>RayFancy works with customers and partners in different countries and regions. If you contact us from outside China, your information may be transferred and processed across borders for inquiry response, product matching, sample discussion, and export communication.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>7. Data Retention and Security</h2>
+<p>We keep inquiry and business communication information only for as long as reasonably needed for the purposes described in this policy, including follow-up communication, order discussion, recordkeeping, and legal or operational needs. We use reasonable technical and organizational measures to protect information, but no website or online transmission can be guaranteed to be completely secure.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>8. Your Choices</h2>
+<p>You may contact us to request access, correction, update, or deletion of information you have provided, subject to applicable legal and business record requirements. You may also ask us to stop non-essential business follow-up messages.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>9. Third-Party Links</h2>
+<p>Our website may include links to third-party websites or communication tools. Their privacy practices are governed by their own policies, and we are not responsible for their content or practices.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>10. Updates to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. The latest version will be posted on this page with the updated date shown above.</p>
+</div>
+<div class="rayfancy-policy-section">
+<h2>11. Contact Us</h2>
+<p>For privacy questions or data requests, contact us at <a class="text-[#8a6d2f] underline" href="mailto:${contact.email}">${contact.email}</a> or through WhatsApp: <a class="text-[#8a6d2f] underline" href="${contact.whatsapp1}">${contact.phone1}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp2}">${contact.phone2}</a>, <a class="text-[#8a6d2f] underline" href="${contact.whatsapp3}">${contact.phone3}</a>.</p>
+</div>
+</div>
+</section>
+</main>
+${commonFooter()}
+</body>
+</html>`;
+}
+
 function addQualityPageStyles(html) {
   return html.replace("</style>", `\n  .rayfancy-quality-eyebrow{font-size:14px!important;letter-spacing:.24em!important;}\n  .rayfancy-quality-card{background:#172838;border:1px solid rgba(210,176,109,.22);box-shadow:0 24px 60px rgba(0,0,0,.22);}\n  .rayfancy-quality-card-media{height:210px;overflow:hidden;background:#0e1c29;}\n  .rayfancy-quality-card-img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.03);}\n  .rayfancy-quality-card-content{position:relative;min-height:250px;padding:30px 34px 34px;background:linear-gradient(180deg,#1b3143,#132536);}\n  .rayfancy-quality-card .material-symbols-outlined{position:absolute;top:28px;right:30px;font-size:42px!important;opacity:.16!important;color:#d2b06d!important;}\n  .rayfancy-quality-docs{position:relative;overflow:hidden;background:#11150f!important;color:#fff;}\n  .rayfancy-quality-docs::before{content:\"\";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,21,15,.90),rgba(17,21,15,.66),rgba(17,21,15,.78)),url('/assets/products/premium-switch-closeup-202606072357.jpeg') center/cover no-repeat;}\n  .rayfancy-quality-docs>div{position:relative;z-index:1;}\n  .rayfancy-quality-docs h2,.rayfancy-quality-docs h4{color:#fff!important;}\n  .rayfancy-quality-docs p{color:rgba(255,255,255,.72)!important;}\n  .rayfancy-doc-icon{width:112px!important;height:112px!important;border:0!important;border-radius:0!important;background:rgba(255,255,255,.10)!important;backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);}\n  .rayfancy-doc-icon span{color:#d2b06d!important;}\n  .rayfancy-quality-cta-card{background-image:linear-gradient(90deg,rgba(4,18,31,.88),rgba(4,18,31,.68),rgba(4,18,31,.22)),url('/assets/products/premium-architectural-202606080002.jpeg')!important;background-size:cover!important;background-position:center!important;}\n  .rayfancy-footer-social-plain{font-size:42px!important;opacity:.52!important;color:#d2b06d!important;filter:drop-shadow(0 12px 22px rgba(0,0,0,.24));}\n  .rayfancy-footer-social-plain:hover{opacity:.86!important;}\n  .rayfancy-quality-footer-heading{font-size:22px!important;letter-spacing:.24em!important;color:#d2b06d!important;}\n  .rayfancy-quality-footer-link{font-size:16px!important;line-height:1.45!important;color:rgba(255,255,255,.54)!important;}\n  .rayfancy-quality-footer-link:hover{color:#fff!important;}\n  .rayfancy-quality-flow{row-gap:28px!important;}\n  .rayfancy-quality-flow h4{font-size:12px!important;letter-spacing:.18em!important;}\n  .rayfancy-quality-flow p{font-size:15px!important;line-height:1.55!important;}\n  .rayfancy-quality-flow-dot{box-shadow:0 0 0 8px #f9f9f8!important;}\n  .rayfancy-quality-metric{font-size:52px!important;letter-spacing:.02em!important;color:#d2b06d!important;}\n  .rayfancy-quality-metric-title{font-size:12px!important;letter-spacing:.18em!important;color:#fff!important;}\n  .rayfancy-quality-metric-copy{font-size:16px!important;line-height:1.6!important;color:rgba(255,255,255,.68)!important;opacity:1!important;}\n  @media (max-width:768px){.rayfancy-quality-card-media{height:190px}.rayfancy-quality-card-content{min-height:auto;padding:26px}.rayfancy-quality-metric{font-size:42px!important}.rayfancy-quality-footer-heading{font-size:18px!important}.rayfancy-quality-footer-link{font-size:15px!important;}}\n</style>`);
 }
@@ -700,7 +885,7 @@ function addProjectsPageStyles(html) {
 }
 
 function addProductsPageStyles(html) {
-  return html.replace("</style>", `\n  .rayfancy-product-finish-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;align-items:start!important;}\n  .rayfancy-product-swatch{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;min-width:0!important;}\n  .rayfancy-product-swatch-dot{margin-left:auto!important;margin-right:auto!important;}\n  .rayfancy-product-swatch-label{width:100%!important;min-height:24px!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;text-align:center!important;line-height:1.2!important;}\n  .rayfancy-products-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif!important;font-size:34px!important;line-height:1!important;font-weight:400!important;letter-spacing:.03em!important;color:#d2b06d!important;}\n  .rayfancy-products-footer-copy{font-style:italic!important;}\n  .rayfancy-products-footer-icon{font-size:32px!important;color:#d2b06d!important;border:0!important;box-shadow:none!important;background:transparent!important;}\n  .rayfancy-products-footer-heading{font-size:14px!important;letter-spacing:.18em!important;color:#d2b06d!important;}\n  .rayfancy-products-footer-link{font-size:14px!important;line-height:1.4!important;}\n  .rayfancy-products-copyright{font-size:10px!important;font-weight:400!important;letter-spacing:.08em!important;text-align:left!important;opacity:.48!important;}\n  @media (max-width:768px){.rayfancy-products-footer-brand{font-size:30px!important}.rayfancy-product-finish-grid{gap:12px!important}.rayfancy-products-footer-heading{font-size:13px!important}}\n</style>`);
+  return html.replace("</style>", `\n  .rayfancy-material-filter{border-left:3px solid rgba(184,151,91,.36);padding-left:18px;}\n  .rayfancy-material-group-title{font-family:Montserrat,Arial,sans-serif;font-size:12px;line-height:1;letter-spacing:.18em;text-transform:uppercase;color:#b8975b;font-weight:700;margin:0;}\n  .rayfancy-material-option{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;font-size:15px;line-height:1.35;color:#1a1c1c;}\n  .rayfancy-material-option span:first-child{font-weight:600;}\n  .rayfancy-material-option span:last-child{font-size:10px;line-height:1.25;text-align:right;text-transform:uppercase;letter-spacing:.08em;color:rgba(83,98,113,.62);max-width:96px;}\n  .rayfancy-product-finish-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;align-items:start!important;}\n  .rayfancy-product-swatch{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;min-width:0!important;}\n  .rayfancy-product-swatch-dot{margin-left:auto!important;margin-right:auto!important;}\n  .rayfancy-product-swatch-label{width:100%!important;min-height:24px!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;text-align:center!important;line-height:1.2!important;}\n  .rayfancy-products-footer-brand{font-family:Azonix,Montserrat,Arial,sans-serif!important;font-size:34px!important;line-height:1!important;font-weight:400!important;letter-spacing:.03em!important;color:#d2b06d!important;}\n  .rayfancy-products-footer-copy{font-style:italic!important;}\n  .rayfancy-products-footer-icon{font-size:32px!important;color:#d2b06d!important;border:0!important;box-shadow:none!important;background:transparent!important;}\n  .rayfancy-products-footer-heading{font-size:14px!important;letter-spacing:.18em!important;color:#d2b06d!important;}\n  .rayfancy-products-footer-link{font-size:14px!important;line-height:1.4!important;}\n  .rayfancy-products-copyright{font-size:10px!important;font-weight:400!important;letter-spacing:.08em!important;text-align:left!important;opacity:.48!important;}\n  @media (max-width:768px){.rayfancy-products-footer-brand{font-size:30px!important}.rayfancy-product-finish-grid{gap:12px!important}.rayfancy-products-footer-heading{font-size:13px!important}}\n</style>`);
 }
 
 function tuneHomepageHero(html) {
@@ -1162,7 +1347,7 @@ function tuneContactPage(html) {
     )
     .replace(
       /<div class="flex items-start gap-4">\s*<span class="material-symbols-outlined text-heritage-gold mt-1" data-icon="call">call<\/span>\s*<div>\s*<p class="font-label-caps text-label-caps text-slate-gray mb-1">DIRECT PHONE<\/p>\s*<p class="font-body-md text-body-md">\+86 18357812915<\/p>\s*<\/div>\s*<\/div>/,
-      `<div class="flex items-start gap-4">\n<span class="material-symbols-outlined rayfancy-contact-phone-icon" data-icon="call">call</span>\n<div>\n<p class="font-label-caps text-label-caps text-slate-gray mb-1">WHATSAPP</p>\n<p class="font-body-md text-body-md"><a href="${contact.whatsapp1}">${contact.phone1}</a></p>\n<p class="font-body-md text-body-md"><a href="${contact.whatsapp2}">${contact.phone2}</a></p>\n</div>\n</div>`
+      `<div class="flex items-start gap-4">\n<span class="material-symbols-outlined rayfancy-contact-phone-icon" data-icon="call">call</span>\n<div>\n<p class="font-label-caps text-label-caps text-slate-gray mb-1">WHATSAPP</p>\n<p class="font-body-md text-body-md"><a href="${contact.whatsapp1}">${contact.phone1}</a></p>\n<p class="font-body-md text-body-md"><a href="${contact.whatsapp2}">${contact.phone2}</a></p>\n<p class="font-body-md text-body-md"><a href="${contact.whatsapp3}">${contact.phone3}</a></p>\n</div>\n</div>`
     )
     .replace(
       /<img alt="Hardware Engineering" class="w-full h-full object-cover grayscale"([^>]+)src="\/assets\/company\/mold-design\.jpg">/,
@@ -1236,6 +1421,10 @@ function tuneProductsPage(html) {
     .replace(/src="\/assets\/products\/a6-double-socket\.jpg"/, `src="/assets/products/commercial-socket-ecommerce-202606082310.jpeg"`)
     .replace(/src="\/assets\/products\/three-pin-plug\.jpg"/, `src="/assets/products/lighting-accessory-lamp-holder-4b0a8145.jpg"`)
     .replace(/<h1 class="font-display-lg text-display-lg text-obsidian-black mb-6">ARCHITECTURAL QUALITY\.<\/h1>/, `<h1 class="font-display-lg text-display-lg text-obsidian-black mb-6">PRODUCT SUPPLY.</h1>`)
+    .replace(
+      /<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">MATERIAL<\/h3>\s*<ul class="space-y-4">[\s\S]*?<\/ul>/,
+      `<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">MATERIAL</h3>\n<div class="rayfancy-material-filter space-y-7">\n<div>\n<p class="rayfancy-material-group-title">Copper Materials</p>\n<ul class="space-y-3 mt-4">\n<li class="rayfancy-material-option"><span>Phosphor Bronze</span><span>Contact Parts</span></li>\n<li class="rayfancy-material-option"><span>Brass</span><span>Terminals / Frames</span></li>\n</ul>\n</div>\n<div>\n<p class="rayfancy-material-group-title">Plastic Materials</p>\n<ul class="space-y-3 mt-4">\n<li class="rayfancy-material-option"><span>PC</span><span>Panel / Housing</span></li>\n<li class="rayfancy-material-option"><span>PVC</span><span>Insulation Parts</span></li>\n<li class="rayfancy-material-option"><span>PP</span><span>Accessory Parts</span></li>\n<li class="rayfancy-material-option"><span>ABS</span><span>Shell / Components</span></li>\n</ul>\n</div>\n</div>`
+    )
     .replace(/<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">FINISH<\/h3>/, `<h3 class="font-label-caps text-label-caps mb-6 text-obsidian-black">COLOR OPTIONS</h3>`)
     .replace(/<div class="grid grid-cols-4 gap-4">/, `<div class="grid grid-cols-4 gap-4 rayfancy-product-finish-grid">`)
     .replace(/<div class="group cursor-pointer">\s*<div class="w-10 h-10 rounded-full bg-\[#D4AF37\] border border-slate-gray\/10 mb-2 ring-offset-2 group-hover:ring-2 ring-heritage-gold transition-all"><\/div>\s*<span class="text-\[10px\] font-bold text-slate-gray uppercase block text-center">Gold<\/span>\s*<\/div>/, `<div class="group cursor-pointer rayfancy-product-swatch">\n<div class="w-10 h-10 rounded-full bg-[#D4AF37] border border-slate-gray/10 mb-2 ring-offset-2 group-hover:ring-2 ring-heritage-gold transition-all rayfancy-product-swatch-dot"></div>\n<span class="text-[10px] font-bold text-slate-gray uppercase block text-center rayfancy-product-swatch-label">Champagne Gold</span>\n</div>`)
@@ -1392,11 +1581,13 @@ async function buildPage(page) {
     .replace(/href="#">Company Information/g, 'href="/about.html">Company Information')
     .replace(/href="#">Technical Support/g, 'href="/resources.html">Technical Support')
     .replace(/href="#">Global Offices/g, 'href="/projects.html">Global Offices')
-    .replace(/href="#">Privacy Policy/g, 'href="/contact.html">Privacy Policy')
+    .replace(/href="#">Privacy Policy/g, 'href="/privacy.html">Privacy Policy')
     .replace(/href="#">Terms of Service/g, 'href="/contact.html">Terms of Service')
     .replace(/href="#">Contact Sales/g, 'href="/contact.html">Contact Sales')
+    .replace(/href="\/contact\.html">Privacy Policy/g, 'href="/privacy.html">Privacy Policy')
     .replace(/header\.classList\.add\('h-20'\);/g, "header.classList.add('h-16');")
     .replace(/href="#">/g, 'href="/contact.html">');
+  html = replaceSiteFooter(html);
   if (page.out === "index.html") {
     html = tuneLatestHomepageVisuals(html);
   }
@@ -1414,11 +1605,23 @@ const builtPages = new Map();
 for (const page of pages) {
   builtPages.set(page.out, await buildPage(page));
 }
+builtPages.set("privacy.html", buildPrivacyPage());
 
 for (const [name, html] of builtPages) {
   if (!/RAYFANCY|RayFancy/.test(html) || !html.includes("bg-primary")) {
     throw new Error(`Build check failed: ${name} does not preserve Stitch-based content.`);
   }
+}
+
+async function writePageWithCleanUrl(name, html) {
+  await writeFile(path.join(dist, name), html);
+  if (name === "index.html" || !name.endsWith(".html")) {
+    return;
+  }
+  const cleanName = name.slice(0, -".html".length);
+  const cleanDir = path.join(dist, cleanName);
+  await mkdir(cleanDir, { recursive: true });
+  await writeFile(path.join(cleanDir, "index.html"), html);
 }
 
 if (!checkOnly) {
@@ -1427,10 +1630,10 @@ if (!checkOnly) {
   await cp(publicDir, dist, { recursive: true });
   await removeOriginalLargeImagesFromDist();
   for (const [name, html] of builtPages) {
-    await writeFile(path.join(dist, name), html);
+    await writePageWithCleanUrl(name, html);
   }
   await writeFile(path.join(dist, "robots.txt"), "User-agent: *\nAllow: /\nSitemap: https://www.rayfancy-pro.com/sitemap.xml\n");
-  await writeFile(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://www.rayfancy-pro.com/</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/products.html</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/about.html</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/contact.html</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/projects.html</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/quality.html</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/resources.html</loc></url>\n</urlset>\n`);
+  await writeFile(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://www.rayfancy-pro.com/</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/products</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/about</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/contact</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/projects</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/quality</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/resources</loc></url>\n  <url><loc>https://www.rayfancy-pro.com/privacy</loc></url>\n</urlset>\n`);
 }
 
 console.log(checkOnly ? "Build check passed." : "Site built to dist from Stitch templates.");
